@@ -21,3 +21,16 @@ ls | while read P; do sed -i 's/<br\s*\/>/<br>/g' ${P}; done
 
 sudo apt-get install libgsl0-dev libgsl0ldbl
 sudo gem install gsl
+
+
+  * Move tags out of text
+  * remove extra newlines between tags
+  * remove etxra spaces between tags
+
+ls *.html | while read P; do sed -i 's:><:>\n<:g' ${P}; done
+
+ls *.html | while read P; do sed -i 's:\([^>]\)<:\1\n<:g' ${P}; done
+ls *.html | while read P; do sed -i 's:>\([^<]\):>\n\1:g' ${P}; done
+ls *.html | while read P; do sed -i 's:<span.*>:<span>:g' ${P}; done
+
+ls *.html | while read P; do sed -i 's:>\n<:><:g' ${P}; done
