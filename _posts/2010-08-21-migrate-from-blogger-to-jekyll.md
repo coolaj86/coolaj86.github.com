@@ -70,7 +70,7 @@ Here's a post that will get you halfway to [converting html to markdown][html2md
 
 [html2md]: http://whathesaid.ca/2008/02/11/how-to-convert-a-websites-content-into-simple-text-files/
 
-Categorise by Blog
+Categorize by Blog
 -----
 
 I'm using [`Fastr`][fastr] as a template for my blog. `Fastr` supports categories with vanilla `Jekyll`.
@@ -97,6 +97,13 @@ And the other, which thankfully did have titles:
     ls | while read POST; do
       sed -i "s/^\(title:.*\)/\1\ncategories: ${BLOG} uncategorized/" ${POST}
       let ID=ID+1
+    done
+
+And then to give them the Fastr layout
+
+    ls | while read P
+    do
+      sed -i "s/layout: post/layout: article/" ${P}
     done
 
 
