@@ -56,13 +56,13 @@ If you didn't replace "YAML" with "yaml":
 
 If you don't have a `_posts`:
 
-   http://coolaj86.blogspot.com/2010_05_01_archive.html#8976446356395410673 -> _posts/2010-05-06-2010_05_01_archive.html
-  /home/user/jekyll/lib/jekyll/converters/rss.rb:39:in `initialize': No such file or directory - _posts/2010-05-06-2010_05_01_archive.html (Errno::ENOENT)
-    from /home/user/jekyll/lib/jekyll/converters/rss.rb:39:in `open'
-    from /home/user/jekyll/lib/jekyll/converters/rss.rb:39:in `block in process'
-    from /usr/local/lib/ruby/1.9.1/rexml/element.rb:906:in `block in each'
-    from /usr/local/lib/ruby/1.9.1/rexml/xpath.rb:64:in `each'
-    from /usr/local/lib/ruby/1.9.1/rexml/xpath.rb:64:in `each'
-    from /usr/local/lib/ruby/1.9.1/rexml/element.rb:906:in `each'
-    from /home/user/jekyll/lib/jekyll/converters/rss.rb:16:in `process'
-    from -e:1:in `<main>' 
+     http://coolaj86.blogspot.com/2010_05_01_archive.html#8976446356395410673 -> _posts/2010-05-06-2010_05_01_archive.html
+    /home/user/jekyll/lib/jekyll/converters/rss.rb:39:in `initialize': No such file or directory - _posts/2010-05-06-2010_05_01_archive.html (Errno::ENOENT)
+      from /home/user/jekyll/lib/jekyll/converters/rss.rb:39:in `open'
+      from /home/user/jekyll/lib/jekyll/converters/rss.rb:39:in `block in process'
+      from /usr/local/lib/ruby/1.9.1/rexml/element.rb:906:in `block in each'
+      from /usr/local/lib/ruby/1.9.1/rexml/xpath.rb:64:in `each'
+      from /usr/local/lib/ruby/1.9.1/rexml/xpath.rb:64:in `each'
+      from /usr/local/lib/ruby/1.9.1/rexml/element.rb:906:in `each'
+      from /home/user/jekyll/lib/jekyll/converters/rss.rb:16:in `process'
+      from -e:1:in `<main>' 
