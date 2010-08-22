@@ -1,0 +1,8 @@
+--- 
+layout: post
+name: random-mac-address
+title: Random MAC Address
+categories: thesystemisntdown uncategorized
+time: 2010-04-14 12:51:00 -06:00
+---
+<pre>ifconfig eth0:0 hw ether `(date; cat /proc/interrupts) | md5sum | sed -r 's/^(.{10}).*$/\1/; s/([0-9a-f]{2})/\1:/g; s/:$//;'`</pre><br />Stolen from <a href="http://www.commandlinefu.com/commands/view/745/generat-a-random-mac-address">CommandLineFu</a><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-6280507328761111169?l=thesystemisntdown.blogspot.com' alt='' /></div>

@@ -1,0 +1,8 @@
+--- 
+layout: post
+name: minicomrunscript-syntax-error-in-line
+title: "\"minicom.runscript\": syntax error in line 00 (word contains ESC or quote)"
+categories: thesystemisntdown uncategorized
+time: 2010-04-16 12:09:00 -06:00
+---
+minicom's runscript has a line length character limit of 88<br /><br />Any send command longer that this:<br /><pre>send "1234567890123456789012468901245678901234567890123456789012345678901234567890123456789012"</pre><br />results in this error:<br /><pre>"YOUR_SCRIPT.runscript": syntax error in line XX (word contains ESC or quote)</pre><br />The solution is to use "\c" as the 87th and 88th character and continue on the next line:<br /><pre>send "12345678901234567890124689012456789012345678901234567890123456789012345678901234567890\c"<br />send "Unfortunately, this is the absolute maximum line length that minicom runscript handles\c"<br />send "the end"</pre><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-8191613258368709777?l=thesystemisntdown.blogspot.com' alt='' /></div>

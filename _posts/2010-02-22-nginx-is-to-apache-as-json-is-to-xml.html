@@ -1,0 +1,8 @@
+--- 
+layout: post
+name: nginx-is-to-apache-as-json-is-to-xml
+title: Nginx is to Apache as JSON is to XML
+categories: thesystemisntdown uncategorized
+time: 2010-02-22 22:26:00 -07:00
+---
+As part of getting up and running on FsckVPS I decided to go with Nginx rather than Apache because it's so hot right now (like Hansel) and I figured it's something I should learn.<br /><br />Well, after setting up Nginx with Passenger, Ruby / Rack / Rails, and Python / WSGI / TurboGears I have to say that there is no reason in my mind to go back to apache.<br /><br />Nginx is simpler than Apache in the same way that JSON is simpler than XML.<br /><br /><br /><a href="http://www.modrails.com/install.html">Passenger installs Nginx for you!</a><br /><a href="http://articles.slicehost.com/2008/5/28/how-to-serve-multiple-domains">Virtual Hosts with Nginx</a><br /><a href="http://articles.slicehost.com/2008/5/27/ubuntu-hardy-nginx-rails-and-thin">Nginx as a Reverse Proxy for a Thin cluster</a><br /><a href="http://kbeezie.com/view/using-python-nginx-passenger/2/">Nginx and Passenger way easier than mod_wsgi</a><br /><a href="http://articles.slicehost.com/nginx">Nginx articles on Slicehost</a><br /><br /><br />This is much less complicated than it sounds:<br /><br /><ol><li>Installed Ubuntu 9.04</li><li>Installed latest stable ruby (which includes rubygems) from source</li><li>Installed passenger gem</li><li>Installed nginx from source with passenger</li><li>Configured nginx (including init.d)</li><li>What!? Entirely amazed that I got it right on the first try!</li></ol><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-7414293227431011042?l=thesystemisntdown.blogspot.com' alt='' /></div>

@@ -85,7 +85,7 @@ Here's a script I used to go through one of my blogs, which was created back whe
     cd ${BLOG}_posts
     ls | while read POST; do
       sed -i "s/^title:/title: untitled ${ID}\ncategories: ${BLOG} uncategorized/" ${POST}
-      mv `basename ${POST} .html` ${POST}_${ID}.md
+      mv ${POST} `basename ${POST} .html`_${ID}.html
       let ID=ID+1
     done
 
@@ -96,7 +96,6 @@ And the other, which thankfully did have titles:
     cd ${BLOG}_posts
     ls | while read POST; do
       sed -i "s/^\(title:.*\)/\1\ncategories: ${BLOG} uncategorized/" ${POST}
-      mv `basename ${POST} .html` ${POST}.md
       let ID=ID+1
     done
 
