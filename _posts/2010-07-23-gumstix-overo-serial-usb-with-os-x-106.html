@@ -5,4 +5,20 @@ title: Gumstix Overo Serial-USB with OS X 10.6 Snow Leopard
 categories: thesystemisntdown uncategorized
 time: 2010-07-23 13:39:00 -06:00
 ---
-In a previous post I was using the PL2303 adapter. Now I'm using an FTDI that's built onto the Tobi board.<br /><br /><ul><li>Download and install the <a href="http://www.ftdichip.com/Drivers/VCP/MacOSX/FTDIUSBSerialDriver_v2_2_14.dmg">driver</a>&nbsp;from <a href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI</a></li><li>reboot</li><li>ls /dev/tty*</li><li>/dev/tty.usbserial* </li><li>/dev/tty.usbserial-A100e0TP (this may change when unplugging and replugging)</li><li>sudo minicom -s (setup the port as the tty.usbserial-xxxxx)</li></ul>Works for me!<br /><br /><br />This is reported to also work for OSX 10.3 Panther, 10.4 Tiger, 10.5 Leopard<br /><br /><br />Thanks to <a href="http://pixhawk.ethz.ch/tutorials/serial_terminal">PixHawks</a> for the info.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-1492245551135328893?l=thesystemisntdown.blogspot.com' alt='' /></div>
+In a previous post I was using the PL2303 adapter. Now I'm using an FTDI that's built onto the Tobi board.
+<br>
+
+<br>
+<ul><li>Download and install the <a href="http://www.ftdichip.com/Drivers/VCP/MacOSX/FTDIUSBSerialDriver_v2_2_14.dmg">driver</a>&nbsp;from <a href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI</a></li><li>reboot</li><li>ls /dev/tty*</li><li>/dev/tty.usbserial* </li><li>/dev/tty.usbserial-A100e0TP (this may change when unplugging and replugging)</li><li>sudo minicom -s (setup the port as the tty.usbserial-xxxxx)</li></ul>Works for me!
+<br>
+
+<br>
+
+<br>
+This is reported to also work for OSX 10.3 Panther, 10.4 Tiger, 10.5 Leopard
+<br>
+
+<br>
+
+<br>
+Thanks to <a href="http://pixhawk.ethz.ch/tutorials/serial_terminal">PixHawks</a> for the info.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-1492245551135328893?l=thesystemisntdown.blogspot.com' alt='' /></div>

@@ -5,4 +5,60 @@ title: Refactor from the Commandline
 categories: thesystemisntdown uncategorized
 time: 2010-06-21 10:17:00 -06:00
 ---
-Here's an example script I used to refactor the names of files in a C project.<br />It can easily be adapted to refactor variable names, etc in JavaScript, Ruby, Python, PHP (*shudder*), etc.<br /><br /><pre>#!/bin/bash<br /><br />if [ ! -n "${1}" ]<br />then<br />&nbsp;&nbsp;&nbsp; echo "<br />Usage: refactor.sh new_basename old_basename<br /><br />Note: do not include '.c' or '.h', this is added for you.<br />&nbsp;&nbsp;&nbsp; "<br />&nbsp;&nbsp;&nbsp; exit<br />fi<br /><br />NEW=${1}<br />OLD=${2}<br /><br />svn mv include/${OLD}.h include/${NEW}.h<br />svn mv ${OLD}.c ${NEW}.c<br /><br /><br />find ./ -name '*.c' | xargs sed -i "s/${OLD}\.h/${NEW}\.h/gi"<br />find ./ -name '*.c' | xargs sed -i "s/${OLD}\.c/${NEW}\.c/gi"<br /><br />find ./ -name '*.h' | xargs sed -i "s/${OLD}\.h/${NEW}\.h/gi"<br />find ./ -name '*.h' | xargs sed -i "s/${OLD}\.c/${NEW}\.c/gi"<br /></pre><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-5715122279406379069?l=thesystemisntdown.blogspot.com' alt='' /></div>
+Here's an example script I used to refactor the names of files in a C project.
+<br>
+It can easily be adapted to refactor variable names, etc in JavaScript, Ruby, Python, PHP (*shudder*), etc.
+<br>
+
+<br>
+
+<pre><code>
+#!/bin/bash
+<br>
+
+<br>
+if [ ! -n "${1}" ]
+<br>
+then
+<br>
+&nbsp;&nbsp;&nbsp; echo "
+<br>
+Usage: refactor.sh new_basename old_basename
+<br>
+
+<br>
+Note: do not include '.c' or '.h', this is added for you.
+<br>
+&nbsp;&nbsp;&nbsp; "
+<br>
+&nbsp;&nbsp;&nbsp; exit
+<br>
+fi
+<br>
+
+<br>
+NEW=${1}
+<br>
+OLD=${2}
+<br>
+
+<br>
+svn mv include/${OLD}.h include/${NEW}.h
+<br>
+svn mv ${OLD}.c ${NEW}.c
+<br>
+
+<br>
+
+<br>
+find ./ -name '*.c' | xargs sed -i "s/${OLD}\.h/${NEW}\.h/gi"
+<br>
+find ./ -name '*.c' | xargs sed -i "s/${OLD}\.c/${NEW}\.c/gi"
+<br>
+
+<br>
+find ./ -name '*.h' | xargs sed -i "s/${OLD}\.h/${NEW}\.h/gi"
+<br>
+find ./ -name '*.h' | xargs sed -i "s/${OLD}\.c/${NEW}\.c/gi"
+<br>
+</code></pre><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-5715122279406379069?l=thesystemisntdown.blogspot.com' alt='' /></div>

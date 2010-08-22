@@ -5,4 +5,88 @@ title: Facebook's Application Tabs (Pre-"Early 2010")
 categories: thesystemisntdown uncategorized
 time: 2010-02-16 00:14:00 -07:00
 ---
-<div style="font-family: Verdana,sans-serif;">Lies! All lies!</div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;">I'm working with Facebook for a client and I'm having to learn quite a bit to get not-as-much done.</div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;">You see, Facebook just changed (yet again) last week and so few to none of the tutorials online have updated nominature nor screenshots.</div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;">To say that the Facebook documentation lacks clarity and consistency is an understatement. Ugh!</div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;">Today's lesson: Creating a Canvas and a Tab</div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;">First we venture here:</div><div style="font-family: Verdana,sans-serif;"><b>http://apps.facebook.com/developer</b></div><div style="font-family: Verdana,sans-serif;">Only to be redirected here:</div><div style="font-family: Verdana,sans-serif;">http://www.facebook.com/developers/</div><div style="font-family: Verdana,sans-serif;">Which is just fine, btw.</div><div class="separator" style="clear: both; font-family: Verdana,sans-serif; text-align: center;"><a href="http://1.bp.blogspot.com/_Hobzfd-C10I/S3pGLYCzViI/AAAAAAAAA1o/CjHfswSHICg/s1600-h/Picture+8.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="140" src="http://1.bp.blogspot.com/_Hobzfd-C10I/S3pGLYCzViI/AAAAAAAAA1o/CjHfswSHICg/s640/Picture+8.png" width="640" /></a></div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;">Canvas</div><div style="font-family: Verdana,sans-serif;">Canvas Page URL: <b>ex_ample_app</b><br /><b>http://apps.facebook.com/ex_ample_app</b> </div><div style="font-family: Verdana,sans-serif;">Where facebook users will go to use your application within facebook.<br />Do not supply a facebook connect page here.</div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;">Canvas Page Callback: http://www.example-app.com/<b>canvas?</b></div><div style="font-family: Verdana,sans-serif;">Your server will receive a GET request like http://www.example-app.com/canvas?fb_sig_PARAMS=...</div><div class="separator" style="clear: both; font-family: Verdana,sans-serif; text-align: center;"><a href="http://4.bp.blogspot.com/_Hobzfd-C10I/S3pGqPeDcdI/AAAAAAAAA1w/V0quPDT2rtc/s1600-h/Picture+12.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="414" src="http://4.bp.blogspot.com/_Hobzfd-C10I/S3pGqPeDcdI/AAAAAAAAA1w/V0quPDT2rtc/s640/Picture+12.png" width="640" /></a></div><div style="font-family: Verdana,sans-serif;">You can use FBML here, but the trend is to use iFrames.<br /><br /><span style="font-size: x-small;"><span style="font-size: xx-small;">My personal prediction is that they will try to move apps entirely to the sites they belong to in favor of FB Connect and then have Tabs replace what used to be apps as to better establish a better, more consistent user experience on FB.</span></span></div><div style="font-family: Verdana,sans-serif;"><br /><br /></div><div style="font-family: Verdana,sans-serif;">Profile</div><div style="font-family: Verdana,sans-serif;">Tab Name: Example App</div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;">Tab URL: <b>tab</b><br />http://apps.facebook.com/<b>ex_ample_app/tab</b><br />(This is where I got so frustrated.)</div><div style="font-family: Verdana,sans-serif;">It's not "relative" to your canvas url, it's <b>a parameter appended to</b> your canvas url.</div><div style="font-family: Verdana,sans-serif;">http://www.example-app.com/<b>canvas?tab</b></div><div style="font-family: Verdana,sans-serif;"><b>&nbsp;</b> </div><div style="font-family: Verdana,sans-serif;">Also, you would expect that it would GET the tab url, but it actually POSTs to it!</div><div style="font-family: Verdana,sans-serif;">I believe that the reason it POSTs is that it has a HUGE list of params - which may often exceed the character limit of a normal GET.</div><div class="separator" style="clear: both; font-family: Verdana,sans-serif; text-align: center;"><a href="http://4.bp.blogspot.com/_Hobzfd-C10I/S3pHGFILNdI/AAAAAAAAA14/gWg22Zv7x3Y/s1600-h/Picture+13.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="166" src="http://4.bp.blogspot.com/_Hobzfd-C10I/S3pHGFILNdI/AAAAAAAAA14/gWg22Zv7x3Y/s640/Picture+13.png" width="640" /></a></div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;">Why isn't this in the documentation? I have no idea. Because they're crazy and they already have a PHP library that is saavy to their crazy caveats?</div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;"><br /></div><div style="font-family: Verdana,sans-serif;">Wireshark and server logs are our friends!<br /><br /><br /><br /><br />Facebook JS API Library:&nbsp;<a href="http://wiki.developers.facebook.com/index.php/JavaScript_Client_Library">http://wiki.developers.facebook.com/index.php/JavaScript_Client_Library</a><br />This is how you develop an FB app in an iFrame<br /><br />Facebook Auth for Desktop Apps:<br /><a href="http://lukaszpelszynski.blogspot.com/2009/09/facebook-rest-api-hackers-way.html">http://lukaszpelszynski.blogspot.com/2009/09/facebook-rest-api-hackers-way.html</a><br /><br />Facebook on Merb<br /><span class="Apple-style-span" style="font-family: Times;"><a href="http://www.blogger.com/goog_1267640649565">http://jeremynicoll.com/2009/8/creating-facebook-iframe-applications-with-merb</a></span><br /><span class="Apple-style-span" style="font-family: Times;"><a href="http://developers.facebook.com/docs/?u=facebook.joey.FB">http://developers.facebook.com/docs/?u=facebook.joey.FB</a></span><br /><span class="Apple-style-span" style="font-family: Times;"><br /></span></div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-2669471792619320836?l=thesystemisntdown.blogspot.com' alt='' /></div>
+<div style="font-family: Verdana,sans-serif;">Lies! All lies!</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">I'm working with Facebook for a client and I'm having to learn quite a bit to get not-as-much done.</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">You see, Facebook just changed (yet again) last week and so few to none of the tutorials online have updated nominature nor screenshots.</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">To say that the Facebook documentation lacks clarity and consistency is an understatement. Ugh!</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">Today's lesson: Creating a Canvas and a Tab</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">First we venture here:</div><div style="font-family: Verdana,sans-serif;"><b>http://apps.facebook.com/developer</b></div><div style="font-family: Verdana,sans-serif;">Only to be redirected here:</div><div style="font-family: Verdana,sans-serif;">http://www.facebook.com/developers/</div><div style="font-family: Verdana,sans-serif;">Which is just fine, btw.</div><div class="separator" style="clear: both; font-family: Verdana,sans-serif; text-align: center;"><a href="http://1.bp.blogspot.com/_Hobzfd-C10I/S3pGLYCzViI/AAAAAAAAA1o/CjHfswSHICg/s1600-h/Picture+8.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="140" src="http://1.bp.blogspot.com/_Hobzfd-C10I/S3pGLYCzViI/AAAAAAAAA1o/CjHfswSHICg/s640/Picture+8.png" width="640" /></a></div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">Canvas</div><div style="font-family: Verdana,sans-serif;">Canvas Page URL: <b>ex_ample_app</b>
+<br>
+<b>http://apps.facebook.com/ex_ample_app</b> </div><div style="font-family: Verdana,sans-serif;">Where facebook users will go to use your application within facebook.
+<br>
+Do not supply a facebook connect page here.</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">Canvas Page Callback: http://www.example-app.com/<b>canvas?</b></div><div style="font-family: Verdana,sans-serif;">Your server will receive a GET request like http://www.example-app.com/canvas?fb_sig_PARAMS=...</div><div class="separator" style="clear: both; font-family: Verdana,sans-serif; text-align: center;"><a href="http://4.bp.blogspot.com/_Hobzfd-C10I/S3pGqPeDcdI/AAAAAAAAA1w/V0quPDT2rtc/s1600-h/Picture+12.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="414" src="http://4.bp.blogspot.com/_Hobzfd-C10I/S3pGqPeDcdI/AAAAAAAAA1w/V0quPDT2rtc/s640/Picture+12.png" width="640" /></a></div><div style="font-family: Verdana,sans-serif;">You can use FBML here, but the trend is to use iFrames.
+<br>
+
+<br>
+<span style="font-size: x-small;"><span style="font-size: xx-small;">My personal prediction is that they will try to move apps entirely to the sites they belong to in favor of FB Connect and then have Tabs replace what used to be apps as to better establish a better, more consistent user experience on FB.</span></span></div><div style="font-family: Verdana,sans-serif;">
+<br>
+
+<br>
+</div><div style="font-family: Verdana,sans-serif;">Profile</div><div style="font-family: Verdana,sans-serif;">Tab Name: Example App</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">Tab URL: <b>tab</b>
+<br>
+http://apps.facebook.com/<b>ex_ample_app/tab</b>
+<br>
+(This is where I got so frustrated.)</div><div style="font-family: Verdana,sans-serif;">It's not "relative" to your canvas url, it's <b>a parameter appended to</b> your canvas url.</div><div style="font-family: Verdana,sans-serif;">http://www.example-app.com/<b>canvas?tab</b></div><div style="font-family: Verdana,sans-serif;"><b>&nbsp;</b> </div><div style="font-family: Verdana,sans-serif;">Also, you would expect that it would GET the tab url, but it actually POSTs to it!</div><div style="font-family: Verdana,sans-serif;">I believe that the reason it POSTs is that it has a HUGE list of params - which may often exceed the character limit of a normal GET.</div><div class="separator" style="clear: both; font-family: Verdana,sans-serif; text-align: center;"><a href="http://4.bp.blogspot.com/_Hobzfd-C10I/S3pHGFILNdI/AAAAAAAAA14/gWg22Zv7x3Y/s1600-h/Picture+13.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="166" src="http://4.bp.blogspot.com/_Hobzfd-C10I/S3pHGFILNdI/AAAAAAAAA14/gWg22Zv7x3Y/s640/Picture+13.png" width="640" /></a></div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">Why isn't this in the documentation? I have no idea. Because they're crazy and they already have a PHP library that is saavy to their crazy caveats?</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">
+<br>
+</div><div style="font-family: Verdana,sans-serif;">Wireshark and server logs are our friends!
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+Facebook JS API Library:&nbsp;<a href="http://wiki.developers.facebook.com/index.php/JavaScript_Client_Library">http://wiki.developers.facebook.com/index.php/JavaScript_Client_Library</a>
+<br>
+This is how you develop an FB app in an iFrame
+<br>
+
+<br>
+Facebook Auth for Desktop Apps:
+<br>
+<a href="http://lukaszpelszynski.blogspot.com/2009/09/facebook-rest-api-hackers-way.html">http://lukaszpelszynski.blogspot.com/2009/09/facebook-rest-api-hackers-way.html</a>
+<br>
+
+<br>
+Facebook on Merb
+<br>
+<span class="Apple-style-span" style="font-family: Times;"><a href="http://www.blogger.com/goog_1267640649565">http://jeremynicoll.com/2009/8/creating-facebook-iframe-applications-with-merb</a></span>
+<br>
+<span class="Apple-style-span" style="font-family: Times;"><a href="http://developers.facebook.com/docs/?u=facebook.joey.FB">http://developers.facebook.com/docs/?u=facebook.joey.FB</a></span>
+<br>
+<span class="Apple-style-span" style="font-family: Times;">
+<br>
+</span></div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-2669471792619320836?l=thesystemisntdown.blogspot.com' alt='' /></div>

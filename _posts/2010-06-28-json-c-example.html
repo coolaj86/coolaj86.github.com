@@ -5,4 +5,138 @@ title: JSON-C Example
 categories: thesystemisntdown uncategorized
 time: 2010-06-28 10:17:00 -06:00
 ---
-So you want to parse JSON with C? Welcome aboard!<br /><br />First get json-c, configure, compile, and update your ld cache<br /><pre>wget http://oss.metaparadigm.com/json-c/json-c-0.9.tar.gz<br />tar xf json-c-0.9.tar.gz<br />cd json-c-0.9<br />./configure && make && sudo make install<br />sudo ldconfig<br /></pre><br />Now use one of the test files provided or this example:<br />http://www.jroller.com/RickHigh/entry/json_parsing_with_c_simple<br /><pre>cd ..<br />vim json-example.c<br />#include &lt;stdio.h><br />#include &lt;stdlib.h><br />#include &lt;stddef.h><br />#include &lt;string.h><br /><br />#include "json.h"<br /><br />int main(int argc, char **argv)<br />{<br />  struct json_object *new_obj;<br /><br />  MC_SET_DEBUG(1);<br />  // I added some new lines... not in real program<br />  new_obj = json_tokener_parse("/* more difficult test case */ { \"glossary\": { \"title\": \"example glossary\", \"pageCount\": 100, \"GlossDiv\": { \"title\": \"S\", \"GlossList\": [ { \"ID\": \"SGML\", \"SortAs\": \"SGML\", \"GlossTerm\": \"Standard Generalized Markup Language\", \"Acronym\": \"SGML\", \"Abbrev\": \"ISO 8879:1986\", \"GlossDef\": \"A meta-markup language, used to create markup languages such as DocBook.\", \"GlossSeeAlso\": [\"GML\", \"XML\", \"markup\"] } ] } } }");<br />  printf("new_obj.to_string()=%s\n", json_object_to_json_string(new_obj));<br /><br />  new_obj = json_object_object_get(new_obj, "glossary");<br />  printf("new_obj.to_string()=%s\n", json_object_to_json_string(new_obj));<br /><br />  new_obj = json_object_object_get(new_obj, "pageCount");<br /><br /><br />  int pageCount = json_object_get_int(new_obj);<br /><br />  printf("Page count = %d", pageCount);<br /><br />  json_object_put(new_obj);<br /><br />  return 0;<br />}<br /></pre><br />Put it in a Makefile with the right settings.<br /><pre>vim Makefile<br />all: static<br /><br />static:<br />  gcc -static json-example.c -L/usr/local/lib -ljson -I/usr/local/include/json -o json-example-static<br />  ./json-example-static<br /><br />shared:<br />  gcc json-example.c -L/usr/local/lib -ljson -I/usr/local/include/json -o json-example-shared<br />  ./json-example-shared<br /><br />.PHONY: all static shared<br /></pre><br />Finally test that it works:<br /><pre>make static<br />make shared<br /></pre><br /><br />Hopefully that's enough to get you started. The big thing is that when you compile your own projects, make sure that you include the json library and paths.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-429295978562103288?l=thesystemisntdown.blogspot.com' alt='' /></div>
+So you want to parse JSON with C? Welcome aboard!
+<br>
+
+<br>
+First get json-c, configure, compile, and update your ld cache
+<br>
+
+<pre><code>
+wget http://oss.metaparadigm.com/json-c/json-c-0.9.tar.gz
+<br>
+tar xf json-c-0.9.tar.gz
+<br>
+cd json-c-0.9
+<br>
+./configure && make && sudo make install
+<br>
+sudo ldconfig
+<br>
+</code></pre>
+<br>
+Now use one of the test files provided or this example:
+<br>
+http://www.jroller.com/RickHigh/entry/json_parsing_with_c_simple
+<br>
+
+<pre><code>
+cd ..
+<br>
+vim json-example.c
+<br>
+#include &lt;stdio.h>
+<br>
+#include &lt;stdlib.h>
+<br>
+#include &lt;stddef.h>
+<br>
+#include &lt;string.h>
+<br>
+
+<br>
+#include "json.h"
+<br>
+
+<br>
+int main(int argc, char **argv)
+<br>
+{
+<br>
+  struct json_object *new_obj;
+<br>
+
+<br>
+  MC_SET_DEBUG(1);
+<br>
+  // I added some new lines... not in real program
+<br>
+  new_obj = json_tokener_parse("/* more difficult test case */ { \"glossary\": { \"title\": \"example glossary\", \"pageCount\": 100, \"GlossDiv\": { \"title\": \"S\", \"GlossList\": [ { \"ID\": \"SGML\", \"SortAs\": \"SGML\", \"GlossTerm\": \"Standard Generalized Markup Language\", \"Acronym\": \"SGML\", \"Abbrev\": \"ISO 8879:1986\", \"GlossDef\": \"A meta-markup language, used to create markup languages such as DocBook.\", \"GlossSeeAlso\": [\"GML\", \"XML\", \"markup\"] } ] } } }");
+<br>
+  printf("new_obj.to_string()=%s\n", json_object_to_json_string(new_obj));
+<br>
+
+<br>
+  new_obj = json_object_object_get(new_obj, "glossary");
+<br>
+  printf("new_obj.to_string()=%s\n", json_object_to_json_string(new_obj));
+<br>
+
+<br>
+  new_obj = json_object_object_get(new_obj, "pageCount");
+<br>
+
+<br>
+
+<br>
+  int pageCount = json_object_get_int(new_obj);
+<br>
+
+<br>
+  printf("Page count = %d", pageCount);
+<br>
+
+<br>
+  json_object_put(new_obj);
+<br>
+
+<br>
+  return 0;
+<br>
+}
+<br>
+</code></pre>
+<br>
+Put it in a Makefile with the right settings.
+<br>
+
+<pre><code>
+vim Makefile
+<br>
+all: static
+<br>
+
+<br>
+static:
+<br>
+  gcc -static json-example.c -L/usr/local/lib -ljson -I/usr/local/include/json -o json-example-static
+<br>
+  ./json-example-static
+<br>
+
+<br>
+shared:
+<br>
+  gcc json-example.c -L/usr/local/lib -ljson -I/usr/local/include/json -o json-example-shared
+<br>
+  ./json-example-shared
+<br>
+
+<br>
+.PHONY: all static shared
+<br>
+</code></pre>
+<br>
+Finally test that it works:
+<br>
+
+<pre><code>
+make static
+<br>
+make shared
+<br>
+</code></pre>
+<br>
+
+<br>
+Hopefully that's enough to get you started. The big thing is that when you compile your own projects, make sure that you include the json library and paths.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-429295978562103288?l=thesystemisntdown.blogspot.com' alt='' /></div>

@@ -5,4 +5,112 @@ title: Getting Started with FsckVPS
 categories: thesystemisntdown uncategorized
 time: 2010-02-22 14:42:00 -07:00
 ---
-<a href="http://www.fsckvps.com/">FsckVPS</a>&nbsp;is an DIY (unmanaged) hosting service.<br /><br />I chose them for several reasons:<br /><br /><ul><li>Although the old Dell I have under my bed has more guaranteed CPU and RAM, the internet connection at my apartment isn't reliable enough to be hosting sites for clients.</li><li>They're cheap $10/month for 384/768(burst) RAM</li><li>Someone on my local ruby list recommended them</li><li>They give me what I need (a box with connection to the www)</li><li>They don't give me what I don't (restrictions, hassle)</li></ul><div><br /></div><div>The sign-up process is a little confusing as they use several software packages.</div><div>This is what you can expect to go through:</div><div><ol><li><a href="mailto:sales@fsckvps.com">E-mail sales</a> to get a <b>discount code</b> if you are</li><ul><li>a student</li><li>going to release some or all of your software open source<br /></li></ul><li>Choose OpenVPN or Xen</li><ul><li>choose a location (subject to availability)</li><li>get a discount by paying at least 3 months up front</li><li>claim your discount code from sales</li><li>make your payment via credit card / paypal<br /></li></ul><li>You will get e-mails with the following information</li><ul><li>VAServe Account - this is created right away</li><li>VPS CP Account - this is created during business hours</li><li>eSupport Account - when you sign up for it<br /></li></ul><li>Your VM gets set up during working business hours</li><ul><li>Wait a few hours to get the e-mail in which you'll find your ip address</li><li>You may need to wait until the next business day<br /></li></ul><li>Once you have your VPS CP account</li><ul><li>Change your OS as you wish, wait 30 minutes</li><li>Put in a ticket through eSupport to notifying that you've changed your OS</li><li>Alternatively, if you're using Ubuntu or Debian this may work for you:<br /><span class="Apple-style-span" style="font-family: arial, sans-serif; font-size: small;">#/etc/network/interfaces<br />auto lo<br />iface lo inet loopback<br /><br /><br />auto venet0<br />iface venet0 inet static<br />&nbsp;&nbsp;address 127.0.0.1<br />&nbsp;&nbsp;netmask 255.255.255.255<br />&nbsp;&nbsp;broadcast 0.0.0.0<br />&nbsp;&nbsp;up route add -net 192.0.2.1 netmask 255.255.255.255 dev venet0<br />&nbsp;&nbsp;up route add default gw 192.0.2.1<br /><br /><br />auto&nbsp;<span style="border-bottom-color: rgb(255, 0, 0); border-bottom-style: dotted; border-bottom-width: 1px;" x="y">venet0</span><span style="-webkit-user-modify: read-only;"></span>:0<br />iface venet0:0 inet static<br /><b>&nbsp;&nbsp;address X.X.X.X</b><br />&nbsp;&nbsp;netmask 255.255.255.255<br />&nbsp;&nbsp;broadcast 0.0.0.0<span class="__wave_paste" data-wave-annotations="" data-wave-xml="auto lo&lt;line&gt;&lt;/line&gt;iface lo inet loopback&lt;line&gt;&lt;/line&gt;&lt;line&gt;&lt;/line&gt;auto venet0&lt;line&gt;&lt;/line&gt;iface venet0 inet static&lt;line&gt;&lt;/line&gt;        address 127.0.0.1&lt;line&gt;&lt;/line&gt;        netmask 255.255.255.255&lt;line&gt;&lt;/line&gt;        broadcast 0.0.0.0&lt;line&gt;&lt;/line&gt;        up route add -net 192.0.2.1 netmask 255.255.255.255 dev venet0&lt;line&gt;&lt;/line&gt;        up route add default gw 192.0.2.1&lt;line&gt;&lt;/line&gt;&lt;line&gt;&lt;/line&gt;auto venet0:0&lt;line&gt;&lt;/line&gt;iface venet0:0 inet static&lt;line&gt;&lt;/line&gt;        address 72.9.153.144&lt;line&gt;&lt;/line&gt;        netmask 255.255.255.255&lt;line&gt;&lt;/line&gt;        broadcast 0.0.0.0"></span>&nbsp;</span></li><li><br /></li></ul><li>Setup DNS</li><ul><li>Buy a domain from Google</li><li>Change your @ and www addresses to the VPS VM's IP address</li><li>I don't know about setting up DNS on FsckVPS. I know you can do it, but I don't know how yet</li></ul></ol></div><br /><br />And at this point you should be all set to go.<br /><br /><br />Fsck Anatomy<br /><br /><ul><li>FsckVPS - home page</li><li><a href="https://support.vaserv.com/">eSupport</a>&nbsp;- knowledgebase, support tickets</li><li><a href="https://secure.fsckvps.com/">VAServe</a> - customer account, billing</li><li><a href="https://94.76.232.32:5656/">VPS Control Panel</a>&nbsp;(broken ssl) - VM management</li></ul><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div>P.S. To get my Ubu-box up to a more useable status I do this:</div><div><br /></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">apt-get update &amp;&amp; apt-get -y upgrade</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"># EDIT don't use ufw, it's not compatible with OpenVZ</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"># EDIT 2 I submitted a ticket and they changed the settings such that ufw's firewall rules work</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">apt-get install ufw</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ufw allow ssh/tcp</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ufw allow http/tcp</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ufw allow https/tcp</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">/etc/init.d/ufw restart</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ufw enable</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">#iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT<br />#iptables -A INPUT -p tcp --dport ssh -j ACCEPT<br />#iptables -A INPUT -p tcp --dport www -j ACCEPT<br />#iptables -A INPUT -p tcp --dport https -j ACCEPT<br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><div><br /></div></span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">#create an admin user</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">adduser my_user_name</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">usermod -a -G sudo my_user_name</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">visudo # uncomment %sudo ...</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"># test ssh and disable root ssh</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ssh my_user_name@ip-addr</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"># Don't do this, in case you need serial console login</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"># sudo passwd root -l</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sudo vim /etc/ssh/sshd_config</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">#set PermitRootLogin No</span></div><div><ul><div></div></ul></div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-6918923226869624711?l=thesystemisntdown.blogspot.com' alt='' /></div>
+<a href="http://www.fsckvps.com/">FsckVPS</a>&nbsp;is an DIY (unmanaged) hosting service.
+<br>
+
+<br>
+I chose them for several reasons:
+<br>
+
+<br>
+<ul><li>Although the old Dell I have under my bed has more guaranteed CPU and RAM, the internet connection at my apartment isn't reliable enough to be hosting sites for clients.</li><li>They're cheap $10/month for 384/768(burst) RAM</li><li>Someone on my local ruby list recommended them</li><li>They give me what I need (a box with connection to the www)</li><li>They don't give me what I don't (restrictions, hassle)</li></ul><div>
+<br>
+</div><div>The sign-up process is a little confusing as they use several software packages.</div><div>This is what you can expect to go through:</div><div><ol><li><a href="mailto:sales@fsckvps.com">E-mail sales</a> to get a <b>discount code</b> if you are</li><ul><li>a student</li><li>going to release some or all of your software open source
+<br>
+</li></ul><li>Choose OpenVPN or Xen</li><ul><li>choose a location (subject to availability)</li><li>get a discount by paying at least 3 months up front</li><li>claim your discount code from sales</li><li>make your payment via credit card / paypal
+<br>
+</li></ul><li>You will get e-mails with the following information</li><ul><li>VAServe Account - this is created right away</li><li>VPS CP Account - this is created during business hours</li><li>eSupport Account - when you sign up for it
+<br>
+</li></ul><li>Your VM gets set up during working business hours</li><ul><li>Wait a few hours to get the e-mail in which you'll find your ip address</li><li>You may need to wait until the next business day
+<br>
+</li></ul><li>Once you have your VPS CP account</li><ul><li>Change your OS as you wish, wait 30 minutes</li><li>Put in a ticket through eSupport to notifying that you've changed your OS</li><li>Alternatively, if you're using Ubuntu or Debian this may work for you:
+<br>
+<span class="Apple-style-span" style="font-family: arial, sans-serif; font-size: small;">#/etc/network/interfaces
+<br>
+auto lo
+<br>
+iface lo inet loopback
+<br>
+
+<br>
+
+<br>
+auto venet0
+<br>
+iface venet0 inet static
+<br>
+&nbsp;&nbsp;address 127.0.0.1
+<br>
+&nbsp;&nbsp;netmask 255.255.255.255
+<br>
+&nbsp;&nbsp;broadcast 0.0.0.0
+<br>
+&nbsp;&nbsp;up route add -net 192.0.2.1 netmask 255.255.255.255 dev venet0
+<br>
+&nbsp;&nbsp;up route add default gw 192.0.2.1
+<br>
+
+<br>
+
+<br>
+auto&nbsp;<span style="border-bottom-color: rgb(255, 0, 0); border-bottom-style: dotted; border-bottom-width: 1px;" x="y">venet0</span><span style="-webkit-user-modify: read-only;"></span>:0
+<br>
+iface venet0:0 inet static
+<br>
+<b>&nbsp;&nbsp;address X.X.X.X</b>
+<br>
+&nbsp;&nbsp;netmask 255.255.255.255
+<br>
+&nbsp;&nbsp;broadcast 0.0.0.0<span class="__wave_paste" data-wave-annotations="" data-wave-xml="auto lo&lt;line&gt;&lt;/line&gt;iface lo inet loopback&lt;line&gt;&lt;/line&gt;&lt;line&gt;&lt;/line&gt;auto venet0&lt;line&gt;&lt;/line&gt;iface venet0 inet static&lt;line&gt;&lt;/line&gt;        address 127.0.0.1&lt;line&gt;&lt;/line&gt;        netmask 255.255.255.255&lt;line&gt;&lt;/line&gt;        broadcast 0.0.0.0&lt;line&gt;&lt;/line&gt;        up route add -net 192.0.2.1 netmask 255.255.255.255 dev venet0&lt;line&gt;&lt;/line&gt;        up route add default gw 192.0.2.1&lt;line&gt;&lt;/line&gt;&lt;line&gt;&lt;/line&gt;auto venet0:0&lt;line&gt;&lt;/line&gt;iface venet0:0 inet static&lt;line&gt;&lt;/line&gt;        address 72.9.153.144&lt;line&gt;&lt;/line&gt;        netmask 255.255.255.255&lt;line&gt;&lt;/line&gt;        broadcast 0.0.0.0"></span>&nbsp;</span></li><li>
+<br>
+</li></ul><li>Setup DNS</li><ul><li>Buy a domain from Google</li><li>Change your @ and www addresses to the VPS VM's IP address</li><li>I don't know about setting up DNS on FsckVPS. I know you can do it, but I don't know how yet</li></ul></ol></div>
+<br>
+
+<br>
+And at this point you should be all set to go.
+<br>
+
+<br>
+
+<br>
+Fsck Anatomy
+<br>
+
+<br>
+<ul><li>FsckVPS - home page</li><li><a href="https://support.vaserv.com/">eSupport</a>&nbsp;- knowledgebase, support tickets</li><li><a href="https://secure.fsckvps.com/">VAServe</a> - customer account, billing</li><li><a href="https://94.76.232.32:5656/">VPS Control Panel</a>&nbsp;(broken ssl) - VM management</li></ul><div>
+<br>
+</div><div>
+<br>
+</div><div>
+<br>
+</div><div>
+<br>
+</div><div>P.S. To get my Ubu-box up to a more useable status I do this:</div><div>
+<br>
+</div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">apt-get update &amp;&amp; apt-get -y upgrade</span>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"># EDIT don't use ufw, it's not compatible with OpenVZ</span>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"># EDIT 2 I submitted a ticket and they changed the settings such that ufw's firewall rules work</span>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">apt-get install ufw</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ufw allow ssh/tcp</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ufw allow http/tcp</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ufw allow https/tcp</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">/etc/init.d/ufw restart</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ufw enable</span>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"></span>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">#iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+<br>
+#iptables -A INPUT -p tcp --dport ssh -j ACCEPT
+<br>
+#iptables -A INPUT -p tcp --dport www -j ACCEPT
+<br>
+#iptables -A INPUT -p tcp --dport https -j ACCEPT
+<br>
+</span>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><div>
+<br>
+</div></span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">
+<br>
+</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">#create an admin user</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">adduser my_user_name</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">usermod -a -G sudo my_user_name</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">visudo # uncomment %sudo ...</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">
+<br>
+</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"># test ssh and disable root ssh</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ssh my_user_name@ip-addr</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"># Don't do this, in case you need serial console login</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"># sudo passwd root -l</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sudo vim /etc/ssh/sshd_config</span></div><div><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">#set PermitRootLogin No</span></div><div><ul><div></div></ul></div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-6918923226869624711?l=thesystemisntdown.blogspot.com' alt='' /></div>

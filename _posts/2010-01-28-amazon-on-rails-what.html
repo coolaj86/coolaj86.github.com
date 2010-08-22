@@ -5,4 +5,140 @@ title: Amazon on Rails what?
 categories: thesystemisntdown uncategorized
 time: 2010-01-28 12:58:00 -07:00
 ---
-<blockquote>I'm building a Rails web app and was wondering what is the best way to get a list of products that Amazon would return based on a search term?<br /><br />For example, if I sent amazon the term "iphone", I'd get a list of iphones back from Amazon. - http://stackoverflow.com/questions/1586836</blockquote><br />Confusion of confusions...<br /><br />sudo gem install rubygems-update<br />sudo /var/lib/gems/1.8/bin/update_rubygems<br />sudo gem install ECS amazon-ecs aws ruby-aws aws right_aws ruby-aaws <br /><br />I had the same question and immediately became confused as to which of these is what I need.<br /><br /><br /><b>Will the real Ruby on Rails Product Advertising API please stand up?</b><br /><br /><br /><b>Amazon's Product Advertising API</b> (formerly known as Amazon E-Commerce API (ECS), formerly known as just Amazon Web Services (AWS), is sometimes referred to as Amazon's Associates Web Service (AAWS)). Ugh!<br />If you don't believe me: http://www.google.com/search?q=amazon+ecs<br />Notice that the first hit is APAA.<br /><br /><b>aws-product-sign</b><br />http://umlaut.rubyforge.org/svn/trunk/lib/aws_product_sign.rb<br />http://bibwild.wordpress.com/2009/05/18/authenticating-to-amazon-product-api-in-ruby/<br /><br /><b>Ruby/(A)AWS (previously Ruby/AWS)</b><br />gem install ruby-aaws<br />Ruby/(A)AWS is a Ruby library interface to Amazon's Associates Web Service.<br />A Ruby language library that allows programmatic access to the popular Amazon Web sites via the AWS v4 API. It is the successor to the once popular, but now obsolete Ruby/Amazon.<br />by Ian Macdonald <br />http://rubyforge.org/projects/ruby-aaws/<br />https://rubyforge.org/projects/ruby-aaws/<br />http://ruby-aaws.rubyforge.org/<br />http://www.caliban.org/ruby/ruby-aws/<br />http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1651&categoryID=14<br /><br /><b>amazon-product-advertising-api</b><br />A nice rubyish interface to the Amazon Product Advertising API, formerly known as the Associates Web Service and before that the Amazon E-Commerce Service.<br />http://amazon-pa-api.rubyforge.org/<br />http://github.com/completelynovel/amazon-product-advertising-api<br /><br /><b>AWS means Amazon Web Services</b>. It used to mean Amazon's Associates Web Service<br />http://developer.amazonwebservices.com/connect/entry.jspa?externalID=846<br />http://aws.amazon.com/documentation/<br /><br /><br /><b>ruby-aws</b><br />gem install ruby-aws<br />framework for Amazon Web Services, including full-featured library for accessing Mechanical Turk.<br />http://rubyforge.org/projects/ruby-aws/<br />http://ruby-aws.rubyforge.org/ruby-aws/<br />by David Parrott <br /><br /><br /><b>Amazon E-Commerce API (ECS) is old</b>. The docs haven't been updated since 2005.<br />http://docs.amazonwebservices.com/AWSEcommerceService/2005-10-05/index.html<br /><br /><b>ECS</b><br />gem install ECS<br />ECS is a Ruby interface to Amazon E-Commerce Service.<br />http://ecs.rubyforge.org/<br />http://developer.amazonwebservices.com/connect/entry.jspa?externalID=826&categoryID=14<br />by wzph<br /><br /><b>amazon-ecs</b><br />gem install amazon-ecs<br />A generic Amazon E-commerce REST API with configurable default options and method call options.<br />http://www.pluitsolutions.com/projects/amazon-ecs<br />http://www.pluitsolutions.com/2006/12/07/ruby-amazon-e-commerce-rest-services-api-amazon-ecs/<br />example: http://www.bookjetty.com/search?db=us&q=curious+george<br />by PluitSolutions<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-7388037364816248017?l=thesystemisntdown.blogspot.com' alt='' /></div>
+<blockquote>I'm building a Rails web app and was wondering what is the best way to get a list of products that Amazon would return based on a search term?
+<br>
+
+<br>
+For example, if I sent amazon the term "iphone", I'd get a list of iphones back from Amazon. - http://stackoverflow.com/questions/1586836</blockquote>
+<br>
+Confusion of confusions...
+<br>
+
+<br>
+sudo gem install rubygems-update
+<br>
+sudo /var/lib/gems/1.8/bin/update_rubygems
+<br>
+sudo gem install ECS amazon-ecs aws ruby-aws aws right_aws ruby-aaws 
+<br>
+
+<br>
+I had the same question and immediately became confused as to which of these is what I need.
+<br>
+
+<br>
+
+<br>
+<b>Will the real Ruby on Rails Product Advertising API please stand up?</b>
+<br>
+
+<br>
+
+<br>
+<b>Amazon's Product Advertising API</b> (formerly known as Amazon E-Commerce API (ECS), formerly known as just Amazon Web Services (AWS), is sometimes referred to as Amazon's Associates Web Service (AAWS)). Ugh!
+<br>
+If you don't believe me: http://www.google.com/search?q=amazon+ecs
+<br>
+Notice that the first hit is APAA.
+<br>
+
+<br>
+<b>aws-product-sign</b>
+<br>
+http://umlaut.rubyforge.org/svn/trunk/lib/aws_product_sign.rb
+<br>
+http://bibwild.wordpress.com/2009/05/18/authenticating-to-amazon-product-api-in-ruby/
+<br>
+
+<br>
+<b>Ruby/(A)AWS (previously Ruby/AWS)</b>
+<br>
+gem install ruby-aaws
+<br>
+Ruby/(A)AWS is a Ruby library interface to Amazon's Associates Web Service.
+<br>
+A Ruby language library that allows programmatic access to the popular Amazon Web sites via the AWS v4 API. It is the successor to the once popular, but now obsolete Ruby/Amazon.
+<br>
+by Ian Macdonald 
+<br>
+http://rubyforge.org/projects/ruby-aaws/
+<br>
+https://rubyforge.org/projects/ruby-aaws/
+<br>
+http://ruby-aaws.rubyforge.org/
+<br>
+http://www.caliban.org/ruby/ruby-aws/
+<br>
+http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1651&categoryID=14
+<br>
+
+<br>
+<b>amazon-product-advertising-api</b>
+<br>
+A nice rubyish interface to the Amazon Product Advertising API, formerly known as the Associates Web Service and before that the Amazon E-Commerce Service.
+<br>
+http://amazon-pa-api.rubyforge.org/
+<br>
+http://github.com/completelynovel/amazon-product-advertising-api
+<br>
+
+<br>
+<b>AWS means Amazon Web Services</b>. It used to mean Amazon's Associates Web Service
+<br>
+http://developer.amazonwebservices.com/connect/entry.jspa?externalID=846
+<br>
+http://aws.amazon.com/documentation/
+<br>
+
+<br>
+
+<br>
+<b>ruby-aws</b>
+<br>
+gem install ruby-aws
+<br>
+framework for Amazon Web Services, including full-featured library for accessing Mechanical Turk.
+<br>
+http://rubyforge.org/projects/ruby-aws/
+<br>
+http://ruby-aws.rubyforge.org/ruby-aws/
+<br>
+by David Parrott 
+<br>
+
+<br>
+
+<br>
+<b>Amazon E-Commerce API (ECS) is old</b>. The docs haven't been updated since 2005.
+<br>
+http://docs.amazonwebservices.com/AWSEcommerceService/2005-10-05/index.html
+<br>
+
+<br>
+<b>ECS</b>
+<br>
+gem install ECS
+<br>
+ECS is a Ruby interface to Amazon E-Commerce Service.
+<br>
+http://ecs.rubyforge.org/
+<br>
+http://developer.amazonwebservices.com/connect/entry.jspa?externalID=826&categoryID=14
+<br>
+by wzph
+<br>
+
+<br>
+<b>amazon-ecs</b>
+<br>
+gem install amazon-ecs
+<br>
+A generic Amazon E-commerce REST API with configurable default options and method call options.
+<br>
+http://www.pluitsolutions.com/projects/amazon-ecs
+<br>
+http://www.pluitsolutions.com/2006/12/07/ruby-amazon-e-commerce-rest-services-api-amazon-ecs/
+<br>
+example: http://www.bookjetty.com/search?db=us&q=curious+george
+<br>
+by PluitSolutions<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-7388037364816248017?l=thesystemisntdown.blogspot.com' alt='' /></div>

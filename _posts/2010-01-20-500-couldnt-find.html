@@ -5,4 +5,74 @@ title: Active Scaffold 404 / 500 "Couldn't find Abcxyz with ID=edit_associated"
 categories: thesystemisntdown uncategorized
 time: 2010-01-20 14:38:00 -07:00
 ---
-ActiveScaffold website hasn't been updated with a little detail that's fairly important.<br /><br /><pre>map.resources :abcxyz_types, :active_scaffold => true<br />  map.resources :abcxyzs, :active_scaffold => true<br /></pre><br />You need to tell config.routes.rb that you're using active scaffold.<br /><br /><pre>ActiveRecord::RecordNotFound in AssignmentsController#show<br /><br />Couldn't find Assignment with ID=edit_associated<br /><br />/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/base.rb:1586:in `find_one'<br />/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/base.rb:1569:in `find_from_ids'<br />/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/base.rb:616:in `find'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `send'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `perform_action_without_filters'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'<br />/var/lib/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'<br />/var/lib/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `process'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'<br />/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'<br /></pre><br />[Edit, later on, in the evening]<br />As it turns out, the official website isn't as official as the wiki. Go figure.<br />http://wiki.github.com/activescaffold/active_scaffold/getting-started<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-2036946970056936693?l=thesystemisntdown.blogspot.com' alt='' /></div>
+ActiveScaffold website hasn't been updated with a little detail that's fairly important.
+<br>
+
+<br>
+
+<pre><code>
+map.resources :abcxyz_types, :active_scaffold => true
+<br>
+  map.resources :abcxyzs, :active_scaffold => true
+<br>
+</code></pre>
+<br>
+You need to tell config.routes.rb that you're using active scaffold.
+<br>
+
+<br>
+
+<pre><code>
+ActiveRecord::RecordNotFound in AssignmentsController#show
+<br>
+
+<br>
+Couldn't find Assignment with ID=edit_associated
+<br>
+
+<br>
+/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/base.rb:1586:in `find_one'
+<br>
+/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/base.rb:1569:in `find_from_ids'
+<br>
+/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/base.rb:616:in `find'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `send'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `perform_action_without_filters'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+<br>
+/var/lib/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+<br>
+/var/lib/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `process'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+<br>
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+<br>
+</code></pre>
+<br>
+[Edit, later on, in the evening]
+<br>
+As it turns out, the official website isn't as official as the wiki. Go figure.
+<br>
+http://wiki.github.com/activescaffold/active_scaffold/getting-started<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-2036946970056936693?l=thesystemisntdown.blogspot.com' alt='' /></div>

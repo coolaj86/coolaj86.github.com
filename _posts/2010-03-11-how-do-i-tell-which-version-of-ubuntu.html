@@ -5,4 +5,32 @@ title: How do I tell which version of Ubuntu I'm running?
 categories: thesystemisntdown uncategorized
 time: 2010-03-11 20:51:00 -07:00
 ---
-Here ya go:<br /><br /><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span style="font-size: xx-small;">#!/usr/bin/env sh</span></div><span style="font-size: xx-small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">#/usr/local/bin/version </span></span><br /><span style="font-size: xx-small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">echo `head -n 1 /etc/apt/sources.list | cut -d' ' -f 3` `cat /etc/issue | cut -d' ' -f 1-2`</span></span><br /><br />Go ahead and put that in <span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: x-small;">/usr/local/bin/version</span> to call at your goodwill and pleasure.<br /><br />By Name: <span style="font-size: x-small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">head -n 1 /etc/apt/sources.list | cut -d' ' -f 3</span></span><br />By Number: <span style="font-size: x-small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">cat /etc/issue</span></span><br />By Kernel: <span style="font-size: x-small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">uname -r</span></span><br /><br />Other methods:<br /><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span style="font-size: x-small;">lsb_release -a</span></div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span style="font-size: x-small;">cat /etc/lsb-release</span></div><br />Appendix A:<br /><a href="http://ubuntu-tutorials.com/2007/01/27/how-to-find-your-ubuntu-or-kernel-version/">http://ubuntu-tutorials.com/2007/01/27/how-to-find-your-ubuntu-or-kernel-version/</a><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-5781011182241489189?l=thesystemisntdown.blogspot.com' alt='' /></div>
+Here ya go:
+<br>
+
+<br>
+<div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span style="font-size: xx-small;">#!/usr/bin/env sh</span></div><span style="font-size: xx-small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">#/usr/local/bin/version </span></span>
+<br>
+<span style="font-size: xx-small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">echo `head -n 1 /etc/apt/sources.list | cut -d' ' -f 3` `cat /etc/issue | cut -d' ' -f 1-2`</span></span>
+<br>
+
+<br>
+Go ahead and put that in <span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: x-small;">/usr/local/bin/version</span> to call at your goodwill and pleasure.
+<br>
+
+<br>
+By Name: <span style="font-size: x-small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">head -n 1 /etc/apt/sources.list | cut -d' ' -f 3</span></span>
+<br>
+By Number: <span style="font-size: x-small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">cat /etc/issue</span></span>
+<br>
+By Kernel: <span style="font-size: x-small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">uname -r</span></span>
+<br>
+
+<br>
+Other methods:
+<br>
+<div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span style="font-size: x-small;">lsb_release -a</span></div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span style="font-size: x-small;">cat /etc/lsb-release</span></div>
+<br>
+Appendix A:
+<br>
+<a href="http://ubuntu-tutorials.com/2007/01/27/how-to-find-your-ubuntu-or-kernel-version/">http://ubuntu-tutorials.com/2007/01/27/how-to-find-your-ubuntu-or-kernel-version/</a><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-5781011182241489189?l=thesystemisntdown.blogspot.com' alt='' /></div>

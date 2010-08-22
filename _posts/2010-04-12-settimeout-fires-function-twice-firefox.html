@@ -5,4 +5,52 @@ title: setTimeout() fires function twice? Firefox Bug?
 categories: thesystemisntdown uncategorized
 time: 2010-04-12 15:26:00 -06:00
 ---
-After 7+ hours of listening to <a href="http://yuiblog.com/crockford">Crockford on JavaScript</a> and some other lectures, I've decided to write my own JS Framework for a current project. As I'm working through various bits I discovered what appears to be a bug in Firefox 3.6.<br /><br />This fires twice, unexpectedly:<br /><pre>function all(){<br />            var promise = make_promise();<br />            // Simulate async call from some source<br />            setTimeout(function(){<br />              promise.fulfill(fixture);<br />            }, 3000);<br />            return promise;<br />          }<br /></pre><br />This fires just once, as expected:<br /><pre>function all(){<br />            var promise = make_promise();<br />            // Simulate async call from some source<br />            function fulfill(){<br />              promise.fulfill(fixture);<br />            }<br />            setTimeout(fulfill, 3000);<br />            return promise;<br />          }<br /></pre><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-7496871724464211964?l=thesystemisntdown.blogspot.com' alt='' /></div>
+After 7+ hours of listening to <a href="http://yuiblog.com/crockford">Crockford on JavaScript</a> and some other lectures, I've decided to write my own JS Framework for a current project. As I'm working through various bits I discovered what appears to be a bug in Firefox 3.6.
+<br>
+
+<br>
+This fires twice, unexpectedly:
+<br>
+
+<pre><code>
+function all(){
+<br>
+            var promise = make_promise();
+<br>
+            // Simulate async call from some source
+<br>
+            setTimeout(function(){
+<br>
+              promise.fulfill(fixture);
+<br>
+            }, 3000);
+<br>
+            return promise;
+<br>
+          }
+<br>
+</code></pre>
+<br>
+This fires just once, as expected:
+<br>
+
+<pre><code>
+function all(){
+<br>
+            var promise = make_promise();
+<br>
+            // Simulate async call from some source
+<br>
+            function fulfill(){
+<br>
+              promise.fulfill(fixture);
+<br>
+            }
+<br>
+            setTimeout(fulfill, 3000);
+<br>
+            return promise;
+<br>
+          }
+<br>
+</code></pre><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-7496871724464211964?l=thesystemisntdown.blogspot.com' alt='' /></div>

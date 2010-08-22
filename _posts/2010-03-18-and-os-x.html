@@ -5,4 +5,24 @@ title: Prolific USB to Serial PL2303 and OS X 10.6
 categories: thesystemisntdown uncategorized
 time: 2010-03-18 12:45:00 -06:00
 ---
-<h2 style="font-family: arial !important;"><span class="Apple-style-span" style="font-family: Times; font-size: medium; font-weight: normal;">Prolific USB to Serial PL2303<br />Prolific Serial to USB PL2303<br />OS X Tiger, OS X Leopard, OS X Snow Leopard</span></h2><div>Install MacPorts for your version of OS X</div><div>(1.8.2 - Snow Leopard at the time of this writing)</div><div>http://distfiles.macports.org/MacPorts/</div><div>Download and open the dmg. Run the pkg.</div><div>$ sudo&nbsp;port -v selfupdate</div><div><br /></div><div>Install the USB to Serial Adapter (0.3.1 marked for 10.4, tested working with 10.6)</div><div>http://sourceforge.net/projects/osx-pl2303/</div><div>Ignore the request to restart as well as the modem which appears in network connections</div><div><br />Install and configure minicom</div><div>http://wiki.openmoko.org/wiki/MacOS_X#USB_Serial_with_minicom</div><div><br /></div><div>$ sudo port install minicom # lrzsz for file xfer will also be installed</div><div>$ ls /dev/cu.<tab><tab> # should reveal&nbsp;/dev/cu.PL2303-0000101D or similar</tab></tab></div><div>$ sudo minicom -s</div><div>&gt; Serial Port Setup</div><div>Device: /dev/cu.PL2303-0000101D</div><div>[enter][enter]</div><div><br /></div><div>&gt;Modem and Dialing</div><div>Init string: [empty string]</div><div>Reset string: [empty string]</div><div>Hang-up string: [empty string]</div><div>[enter][enter]</div><div><br /></div><div>&gt; Save the setup as default ("dfl")</div><div>[enter][enter]</div><div><br /></div><div>&gt; Exit</div><div>[enter]</div><div><br /></div><div>To exit use&nbsp;</div><div>[CTRL-A], [Z], [X]</div><div><br /></div><div>To connect again</div><div>sudo minicom</div><div>[enter][enter]</div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-1190454792399611760?l=thesystemisntdown.blogspot.com' alt='' /></div>
+<h2 style="font-family: arial !important;"><span class="Apple-style-span" style="font-family: Times; font-size: medium; font-weight: normal;">Prolific USB to Serial PL2303
+<br>
+Prolific Serial to USB PL2303
+<br>
+OS X Tiger, OS X Leopard, OS X Snow Leopard</span></h2><div>Install MacPorts for your version of OS X</div><div>(1.8.2 - Snow Leopard at the time of this writing)</div><div>http://distfiles.macports.org/MacPorts/</div><div>Download and open the dmg. Run the pkg.</div><div>$ sudo&nbsp;port -v selfupdate</div><div>
+<br>
+</div><div>Install the USB to Serial Adapter (0.3.1 marked for 10.4, tested working with 10.6)</div><div>http://sourceforge.net/projects/osx-pl2303/</div><div>Ignore the request to restart as well as the modem which appears in network connections</div><div>
+<br>
+Install and configure minicom</div><div>http://wiki.openmoko.org/wiki/MacOS_X#USB_Serial_with_minicom</div><div>
+<br>
+</div><div>$ sudo port install minicom # lrzsz for file xfer will also be installed</div><div>$ ls /dev/cu.<tab><tab> # should reveal&nbsp;/dev/cu.PL2303-0000101D or similar</tab></tab></div><div>$ sudo minicom -s</div><div>&gt; Serial Port Setup</div><div>Device: /dev/cu.PL2303-0000101D</div><div>[enter][enter]</div><div>
+<br>
+</div><div>&gt;Modem and Dialing</div><div>Init string: [empty string]</div><div>Reset string: [empty string]</div><div>Hang-up string: [empty string]</div><div>[enter][enter]</div><div>
+<br>
+</div><div>&gt; Save the setup as default ("dfl")</div><div>[enter][enter]</div><div>
+<br>
+</div><div>&gt; Exit</div><div>[enter]</div><div>
+<br>
+</div><div>To exit use&nbsp;</div><div>[CTRL-A], [Z], [X]</div><div>
+<br>
+</div><div>To connect again</div><div>sudo minicom</div><div>[enter][enter]</div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-1190454792399611760?l=thesystemisntdown.blogspot.com' alt='' /></div>

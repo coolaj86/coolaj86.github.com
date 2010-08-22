@@ -5,4 +5,100 @@ title: Polymorphic Associations in Rails
 categories: thesystemisntdown uncategorized
 time: 2010-03-08 14:40:00 -07:00
 ---
-I've already done this once before, but I didn't blog it, so I forgot it. (You have to teach something in order to really learn it).<br /><br /><br />Essentially: The "belongs_to :arbitrary_name" means what you're going to call all of the different things to which this item can belong. It's arbitrary. The "has_many" of the owner has to include "as :arbitrary_name" <br /><br /><br />Let's say you're doing asynchronous uploads using <a href="http://www.coolaj86.info/cors_uploads/">cors_uploads</a> and <a href="http://www.cordinc.com/blog/2009/04/multiple-attachments-with-vali.html">PaperClip</a>  and you don't know what something is going to be attached at the time  you upload it.<br /><br />Scenario:<br />Professors can create assignments and attach several files are necessary for students to have in order to complete the assignment.<br /><br />Likewise, Students can upload multiple files with an assignment. <br /><br />When they add a file it begins to upload immediately.<br />When the file completes a callback adds its ID to a hidden field in the form.<br />If the form is submitted before the uploads are complete the callback updates the upload with the assignment ID instead of adding its ID to the form.<br />If the browser window is about to be closed it will warn the user if uploads are still in progress.<br /><br />One solution is to have a model for student uploads and another for professor uploads... but that leads to a possibly messy file system as you add more and more types of uploads.<br /><br />Instead we create one model for assets which can belong_to anything "attachable". We define that assignments and submissions can have many assets as an attachable.<br /><br /><pre>class Asset &lt; ActiveRecord::Base<br />    belongs_to :attachable, :polymorphic =&gt; true<br />  end<br /><br />  class Assignment &lt; ActiveRecord::Base<br />    has_many :assets, :as =&gt; :attachable         # The :as option specifies the polymorphic interface to use.<br />  end&nbsp;</pre><pre>&nbsp;</pre><pre>class Submission &lt; ActiveRecord::Base<br />    has_many :assets, :as =&gt; :attachable         # The :as option specifies the polymorphic interface to use.<br />  end<br />&nbsp;</pre><pre>&nbsp;</pre><pre># Then something like </pre><pre></pre><pre>if params[assignment]</pre><pre>@asset.attachable = Assignment.find(params[assignment][:id])</pre><pre>elsif params[submission]</pre><pre>@asset.attachable = Submission.find(params[submission][:id]) </pre><pre>end&nbsp;</pre><pre></pre><pre># Or</pre><pre></pre><pre>@assignment.assets &lt;&lt; Asset.find(params[asset][:id])  </pre><br />Rails Documentation (see the Polymorphic Association section):<br />http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-4633940343144487304?l=thesystemisntdown.blogspot.com' alt='' /></div>
+I've already done this once before, but I didn't blog it, so I forgot it. (You have to teach something in order to really learn it).
+<br>
+
+<br>
+
+<br>
+Essentially: The "belongs_to :arbitrary_name" means what you're going to call all of the different things to which this item can belong. It's arbitrary. The "has_many" of the owner has to include "as :arbitrary_name" 
+<br>
+
+<br>
+
+<br>
+Let's say you're doing asynchronous uploads using <a href="http://www.coolaj86.info/cors_uploads/">cors_uploads</a> and <a href="http://www.cordinc.com/blog/2009/04/multiple-attachments-with-vali.html">PaperClip</a>  and you don't know what something is going to be attached at the time  you upload it.
+<br>
+
+<br>
+Scenario:
+<br>
+Professors can create assignments and attach several files are necessary for students to have in order to complete the assignment.
+<br>
+
+<br>
+Likewise, Students can upload multiple files with an assignment. 
+<br>
+
+<br>
+When they add a file it begins to upload immediately.
+<br>
+When the file completes a callback adds its ID to a hidden field in the form.
+<br>
+If the form is submitted before the uploads are complete the callback updates the upload with the assignment ID instead of adding its ID to the form.
+<br>
+If the browser window is about to be closed it will warn the user if uploads are still in progress.
+<br>
+
+<br>
+One solution is to have a model for student uploads and another for professor uploads... but that leads to a possibly messy file system as you add more and more types of uploads.
+<br>
+
+<br>
+Instead we create one model for assets which can belong_to anything "attachable". We define that assignments and submissions can have many assets as an attachable.
+<br>
+
+<br>
+
+<pre><code>
+class Asset &lt; ActiveRecord::Base
+<br>
+    belongs_to :attachable, :polymorphic =&gt; true
+<br>
+  end
+<br>
+
+<br>
+  class Assignment &lt; ActiveRecord::Base
+<br>
+    has_many :assets, :as =&gt; :attachable         # The :as option specifies the polymorphic interface to use.
+<br>
+  end&nbsp;</code></pre>
+<pre><code>
+&nbsp;</code></pre>
+<pre><code>
+class Submission &lt; ActiveRecord::Base
+<br>
+    has_many :assets, :as =&gt; :attachable         # The :as option specifies the polymorphic interface to use.
+<br>
+  end
+<br>
+&nbsp;</code></pre>
+<pre><code>
+&nbsp;</code></pre>
+<pre><code>
+# Then something like </code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+if params[assignment]</code></pre>
+<pre><code>
+@asset.attachable = Assignment.find(params[assignment][:id])</code></pre>
+<pre><code>
+elsif params[submission]</code></pre>
+<pre><code>
+@asset.attachable = Submission.find(params[submission][:id]) </code></pre>
+<pre><code>
+end&nbsp;</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+# Or</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+@assignment.assets &lt;&lt; Asset.find(params[asset][:id])  </code></pre>
+<br>
+Rails Documentation (see the Polymorphic Association section):
+<br>
+http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-4633940343144487304?l=thesystemisntdown.blogspot.com' alt='' /></div>

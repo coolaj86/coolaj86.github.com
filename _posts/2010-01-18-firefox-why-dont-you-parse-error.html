@@ -5,4 +5,30 @@ title: Firefox, why don't you parse error messages?
 categories: thesystemisntdown uncategorized
 time: 2010-01-18 16:47:00 -07:00
 ---
-My JSON webservice uses HTTP Status codes.<br /><br />I know it's a novel idea to use internationally agreed upon standards (and hardly anyone does it...) but come on Firefox! WTF!? I thought standards are what you were all about!?<br /><br />I send a bad password via xhr and my webservice responds 422 Unprocessable Entity with JSON which describes the error in greater detail.<br /><br />Firefox turns that response into an empty string!!! But if the status code is 2xx it works fine. Huh? What? Huh?<br /><br />jQuery 1.4 is set up to parse using window.JSON and As it turns out an empty string isn't proper JSON and an exception is thrown. <b>WebApp go BOOM!</b><br /><br />I'd like to submit a bug to Mozilla, but I have to wait for their mail system to get through to mine... and hence I decided to blog about it.<br /><br /><br />In the meantime... I guess I lie and use 200 status codes? I don't know. That seems to be the simplest solution.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-5299655699396974483?l=thesystemisntdown.blogspot.com' alt='' /></div>
+My JSON webservice uses HTTP Status codes.
+<br>
+
+<br>
+I know it's a novel idea to use internationally agreed upon standards (and hardly anyone does it...) but come on Firefox! WTF!? I thought standards are what you were all about!?
+<br>
+
+<br>
+I send a bad password via xhr and my webservice responds 422 Unprocessable Entity with JSON which describes the error in greater detail.
+<br>
+
+<br>
+Firefox turns that response into an empty string!!! But if the status code is 2xx it works fine. Huh? What? Huh?
+<br>
+
+<br>
+jQuery 1.4 is set up to parse using window.JSON and As it turns out an empty string isn't proper JSON and an exception is thrown. <b>WebApp go BOOM!</b>
+<br>
+
+<br>
+I'd like to submit a bug to Mozilla, but I have to wait for their mail system to get through to mine... and hence I decided to blog about it.
+<br>
+
+<br>
+
+<br>
+In the meantime... I guess I lie and use 200 status codes? I don't know. That seems to be the simplest solution.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3223021047265210707-5299655699396974483?l=thesystemisntdown.blogspot.com' alt='' /></div>

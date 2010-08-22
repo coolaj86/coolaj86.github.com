@@ -1,0 +1,23 @@
+ls | while read P; do sed -i 's/<br\s*\/>/<br>/g' ${P}; done
+  563  ls | while read P; do sed -i 's/<br \/>/<br>/g' ${P}; done
+  564  grep -R '<br' ./
+  565  ls | while read P; do sed -i 's/<br\/>/<br>/g' ${P}; done
+  566* ls | while read P; do sed -i 's/<br\s*\/>/<br>/g' ${P}; done
+  567  grep -R '<br' ./
+  568  ls | while read P; do sed -i 's/<br>/\n<br>\n/g' ${P}; done
+  569  grep -R '<br' ./
+  570  vim ../TODO
+  571  ls | while read P; do sed -i 's/<pre>/\n<pre>\n/g' ${P}; done
+  572  ls | while read P; do sed -i 's/<code>/\n<code>\n/g' ${P}; done
+  573  ls | while read P; do sed -i 's/<pre>\n<code>/<pre><code>/g' ${P}; done
+  574  ls | while read P; do sed -i 's/<code>\n<pre>/<code><pre>/g' ${P}; done
+  575  grep -R code | grep pre
+  576  grep -R code ./ | grep pre
+  577  grep -R code ./
+  578  ls | while read P; do sed -i 's/<pre>/<pre><code>/g' ${P}; done
+  579  ls | while read P; do sed -i 's:</pre>:</code></pre>:g' ${P}; done
+
+
+
+sudo apt-get install libgsl0-dev libgsl0ldbl
+sudo gem install gsl
