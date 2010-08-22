@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/vendor/highlight/styles/sunburst.css" media="screen" />
+  <script src="/vendor/highlight/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</head>
+
+<body>
+  <h1 id="header">{{ page.title }}</h1>
+
+  <div id="article">
+    {{ content }}
+  </div>
+</body>
+</html>

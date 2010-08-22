@@ -1,0 +1,5 @@
+destination: /var/www/ajs_secret_dir
+pygments: true
+markdown: rdiscount
+exclude: mkdocument
+permalink: /articles/:title.html
