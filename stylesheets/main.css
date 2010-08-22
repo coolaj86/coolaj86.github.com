@@ -53,3 +53,8 @@ div > ol {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
+
+ul.related {
+  display: inline;
+  text-decoration: none;
+}

@@ -1,5 +1,6 @@
-destination: /var/www/ajs_secret_dir
+destination: /home/coolaj86/blog
 pygments: true
 markdown: rdiscount
 exclude: mkdocument
+lsi: true
 permalink: /articles/:title.html
