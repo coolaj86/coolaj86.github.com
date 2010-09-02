@@ -72,7 +72,7 @@ Facebook Auth via Cookie
     /* Connect- / Expess-able application  */
     function single_sign_on_example(req, resp) {
       var cookie = get_facebook_cookie(FACEBOOK_APP_ID, FACEBOOK_SECRET, req.cookies);
-      console.log('Try `curl https://graph.facebook.com/me?access_token=' + cookie.access_token + '` - it\'s fun!');
+      console.log('Try `curl https://graph.facebook.com/me?access_token=' + cookie.access_token + "` - it's fun!");
 
       var present = cookie ? "Your user ID is " + cookie.uid : "<fb:login-button></fb:login-button>";
       var body = '<!DOCTYPE html>\n' +
@@ -90,7 +90,7 @@ Facebook Auth via Cookie
       '      });\n' +
       '    </script>\n';
       resp.writeHead(200);
-      resp.write(blah);
+      resp.write(body);
 
       var fb_client = http.createClient('443', 'graph.facebook.com', true);
       console.log('created client');
