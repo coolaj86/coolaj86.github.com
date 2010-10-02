@@ -93,4 +93,5 @@ EOF
 fi
 
 $EDITOR ${EDFILE}
-echo "Saved ${EDFILE}."
+git add ${POSTDIR}/${FILE} ${EDFILE}
+echo "Saved '${EDFILE}' and added to git repository."

@@ -54,6 +54,12 @@ In my `_layouts/post.html` I put a little conditional logic to load Disqus comme
     <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
     {% endif %}
 
+In order to get a custom github domain I
+
+  * `echo "coolaj86.info" > CNAME` - added the `CNAME` to the root of the blog
+  * changed the A record on `coolaj86.info` at `freedns.afraid.org` to `207.97.227.245`
+  * changed the CNAME record for `www.coolaj86.info` to `coolaj86.github.com`
+
 
 Appendix
 ====

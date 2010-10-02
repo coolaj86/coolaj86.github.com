@@ -1,0 +1,1 @@
+../_posts/2010-10-02-couchdb-resources.md
