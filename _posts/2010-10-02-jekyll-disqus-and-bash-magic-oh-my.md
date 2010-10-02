@@ -25,10 +25,6 @@ Here's a snippet:
     ---
     EOF
 
-And here's how I added `UUID`s to my old posts:
-
-    ls _posts/ | while read P; do sed -i _posts/${P} -e "s|\(^title:.*\)|uuid: `uuidgen`\n\1|g"; done
-
 In my `_layouts/default.html`, right above the closing `</body>`,
 I have the disqus-provided JavaScript.
 
@@ -61,6 +57,17 @@ In my `_layouts/post.html` I put a little conditional logic to load Disqus comme
 
 Appendix
 ====
+
+Add UUID's to Existing posts
+----
+
+    ls _posts/ | while read P; do sed -i _posts/${P} -e "s|\(^title:.*\)|uuid: `uuidgen`\n\1|g"; done
+
+Create short-name links
+----
+
+    ls _posts/ | while read N; do NEW=`echo $N | cut -d'-' -f4-99`; echo "ln -s ../_posts/$N ./edit/$NEW"; done
+
 
 ./mkblog
 ----
