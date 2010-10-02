@@ -1,6 +1,6 @@
 body {
   background-color: #789;
-  background-image:url('images/ribbedbg.png');
+  background-image: #abcd6f url('/images/ribbedbg.png');
 }
 a {
   color: inherit;
