@@ -1,0 +1,1 @@
+../_posts/2010-08-21-migrate-from-blogger-to-jekyll.md

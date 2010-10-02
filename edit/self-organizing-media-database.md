@@ -1,0 +1,1 @@
+../_posts/2010-09-13-self-organizing-media-database.md

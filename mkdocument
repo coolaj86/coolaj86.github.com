@@ -1,9 +1,12 @@
 #!/bin/bash
+set -e
 TITLE=${1}
-POSTDIR=./_posts
+POSTDIR=_posts
+EDITDIR=edit
 
-if [ ! -n "${TITLE}" ]; then
-  echo "USAGE: mkpost title-of-post"
+if [ ! -n "${TITLE}" ] || [ -n "${2}" ]
+then
+  echo "USAGE: ${0} 'Title of my Blog Super-Post!'"
   exit 1
 fi
 
@@ -19,58 +22,74 @@ if [ ! -n "${EDITOR}" ]; then
   fi
 fi
 
-FILE=`date "+%Y-%m-%d"`-${TITLE}.md
+SLUG=`echo "${TITLE}" \
+  | tr '[A-Z]' '[a-z]' \
+  | tr ' ' '-' \
+  | sed 's/[^a-zA-Z0-9\-]/-/g' \
+  | sed 's/-\+/-/g' \
+  | sed -e 's/^-//g' -e 's/-$//g'`
 
-if [ ! -e "${POSTDIR}/${FILE}" ]
+FILE=`date '+%Y-%m-%d'`-${SLUG}.md
+EDFILE=${EDITDIR}/${SLUG}.md
+
+if [ ! -e ${POSTDIR}/${FILE} ]
 then
-  mkdir -p ${POSTDIR}
-  cat - > ${POSTDIR}/${FILE} << EOF
+  mkdir -p "${POSTDIR}"
+  cat - > /tmp/${FILE} << EOF
 ---
 layout: article
-title: `echo ${TITLE} | sed 's/-/ /g'`
-categories: !!UPDATED ME!!
+uuid: `uuidgen`
+title: `echo ${TITLE}`
+created_at: `date +'%Y-%m-%d'`
 updated_at: `date +'%Y-%m-%d'`
+categories: unfinished
 ---
 
-    You just created ${POSTDIR}/${FILE}!
+You just created ${EDFILE}.
 
-    Notice the UPDATED ME in the categories above.
-    Please change that to be a category.
+Notice the UPDATED ME in the categories above.
+Please change that to be a category.
 
-    Your article starts after the last -- above.
+Your article starts after the last -- above.
+
+
+Remember
     
+    Code blocks are indented by 4 spaces
 
-    Remember
-        
-        Code blocks are indented by 4 spaces
+Paragraphs have two spaces between lines.
+Sentances have one.
 
-    Paragraphs have two spaces between lines.
-    Sentances have one.
+  * lists can be bullet
+  * like this
 
-      * lists can be bullet
-      * like this
+or
 
-    or
+  1. can be numbered
+  2. like this
 
-      1. can be numbered
-      2. like this
+Large Header
+====
 
-    Large Header
-    ====
+Small Header
+----
 
-    Small Header
-    ----
-
-    >  block quotes have
-    >  a carret and two spaces
-    >
-    >    and can contain code
-    >
-    >  * bullets
-    >
-    >  1. etc
-
+>  block quotes have
+>  a carret and two spaces
+>
+>    and can contain code
+>
+>  * bullets
+>
+>  1. etc
 EOF
+
+  cat /tmp/${FILE}
+  mv /tmp/${FILE} ${POSTDIR}/${FILE}
+
+  mkdir -p ${EDITDIR}
+  ln -s ../${POSTDIR}/${FILE} ${EDFILE}
 fi
 
-$EDITOR ${POSTDIR}/${FILE}
+$EDITOR ${EDFILE}
+echo "Saved ${EDFILE}."

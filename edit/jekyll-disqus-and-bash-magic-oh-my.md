@@ -1,0 +1,1 @@
+../_posts/2010-10-02-jekyll-disqus-and-bash-magic-oh-my.md

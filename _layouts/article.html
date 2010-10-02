@@ -4,10 +4,10 @@ layout: default
 <div>
   {{ content }}
 
-  {% if page.disqus_identifier %}
+  {% if page.uuid %}
   <div id="disqus_thread"></div>
   <script type="text/javascript">
-      var disqus_identifier = disqus_identifier && 'badid' || '{{ page.disqus_identifier }}';
+      var disqus_identifier = disqus_identifier && 'badid' || '{{ page.uuid }}';
     (function() {
      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
      dsq.src = 'http://coolaj86-gh.disqus.com/embed.js';

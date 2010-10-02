@@ -3,7 +3,7 @@ layout: article
 title: Sites I Like
 categories: design
 updated_at: 2010-10-01
-disqus_identifier: notsorandom
+uuid: 6e7d47d9-4bbf-4e16-89f1-7ee901570696
 ---
 
 Sites that I like because of their visual appeal:
