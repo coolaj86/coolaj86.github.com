@@ -3,8 +3,23 @@ layout: default
 ---
 <div>
   {{ content }}
-<em>Updated at {{ page.updated_at }} </em>
+
+  {% if page.disqus_identifier %}
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_identifier = disqus_identifier && 'badid' || {{ page.disqus_identifier }};
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://coolaj86-gh.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=coolaj86-gh">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  {% endif %}
+  <em>Updated at {{ page.updated_at }} </em>
 </div>
+
 <div class="footer">
     <ul class="related">
     {% for post in site.related_posts %}
