@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: e31e9967-d082-45e5-bb50-70104f708fea
 title: setup for overo oe build system
 categories: gumstix
 updated_at: 2010-09-11

@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: c43d9681-0bd8-4036-9fc3-b719ab5d5dbd
 title: Thoughts on Node.js's event emitter
 categories: coolaj86 cs
 updated_at: 2010-09-03

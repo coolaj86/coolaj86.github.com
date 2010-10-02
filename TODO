@@ -41,3 +41,5 @@ removed extra date info
     ls _posts/ | while read N; do NEW=`echo $N | cut -d'-' -f4-99`; echo "ln -s ../_posts/$N ./edit/$NEW"; done
 
 added uuids
+
+    ls _posts/ | while read P; do sed -i _posts/${P} -e "s|\(^title:.*\)|uuid: `uuidgen`\n\1|g"; done

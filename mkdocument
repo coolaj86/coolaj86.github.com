@@ -40,6 +40,7 @@ then
 layout: article
 uuid: `uuidgen`
 title: `echo ${TITLE}`
+name: `echo ${SLUG}`
 created_at: `date +'%Y-%m-%d'`
 updated_at: `date +'%Y-%m-%d'`
 categories: unfinished

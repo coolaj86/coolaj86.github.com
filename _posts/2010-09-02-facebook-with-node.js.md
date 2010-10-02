@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: f93afa28-f986-47bf-ac9e-8b9e7ebe0aef
 title: facebook with node.js
 categories: facebook nodejs
 updated_at: 2010-09-02

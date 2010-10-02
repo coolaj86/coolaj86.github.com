@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: cca54d32-5966-4885-8efe-becd77c3719a
 title: Ubuntu, PHP, and Oracle Instant Client
 categories: old
 updated_at: 2010-09-12

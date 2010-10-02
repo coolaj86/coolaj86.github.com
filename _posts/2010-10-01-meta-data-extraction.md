@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: d19c3448-a0ff-4fdb-a500-ecc8907e358d
 title: meta-data extraction
 categories: mediabox
 updated_at: 2010-10-01

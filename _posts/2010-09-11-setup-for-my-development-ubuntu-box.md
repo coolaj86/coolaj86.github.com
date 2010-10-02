@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: 3052c75c-ea93-4687-a7dd-c1fd7b9d41a4
 title: setup for my development ubuntu box
 categories: ofnousetoanyoneelse
 updated_at: 2010-09-11

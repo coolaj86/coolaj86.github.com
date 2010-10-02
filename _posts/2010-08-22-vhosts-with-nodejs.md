@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: 74ecc210-fc0e-4447-afe3-8db9216ebc1e
 title: vhosts with nodejs
 categories: nodejs
 updated_at: 2010-08-22

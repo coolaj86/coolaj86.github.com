@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: 1902c934-9e04-4bc2-88a6-e27ea187e4b6
 title: up and running with turbogears 2
 categories: old
 updated_at: 2010-09-12

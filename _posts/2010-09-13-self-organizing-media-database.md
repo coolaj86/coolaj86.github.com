@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: bfb4d41a-e691-4f7c-82ab-db165c517782
 title: Self-organizing Media Database
 categories: mediabox
 updated_at: 2010-09-13

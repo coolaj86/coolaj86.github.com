@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: 3ac46d70-057e-403f-b19c-9c573526c722
 title: My experience with ThrustVPS
 categories: coolaj86 vps
 updated_at: 2010-09-21

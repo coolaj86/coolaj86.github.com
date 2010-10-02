@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: 0b25b6cc-9a7b-44bc-bbd7-1b3a82067ab8
 title: Google I/O T-Shirt Barcodes
 categories: coolaj86
 updated_at: 2010-09-03

@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: 67b82d96-a493-4bd5-807c-e674db07a626
 title: Using npm to package a node.js library
 categories: nodejs
 updated_at: 2010-08-21

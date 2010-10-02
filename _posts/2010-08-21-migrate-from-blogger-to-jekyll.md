@@ -1,5 +1,6 @@
 ---
 layout: article
+uuid: 3060ef49-c159-4960-9b7e-e8f0733476be
 title: Migrate from blogger to jekyll
 categories: meta
 updated_at: 2010-08-21
