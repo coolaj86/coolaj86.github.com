@@ -1,4 +1,4 @@
-destination: /home/coolaj86/blog
+destination: /var/www/blog.coolaj86.info
 pygments: true
 markdown: rdiscount
 exclude: mkdocument
