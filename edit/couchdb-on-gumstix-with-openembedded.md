@@ -1,0 +1,1 @@
+../_posts/2010-10-07-couchdb-on-gumstix-with-openembedded.md
