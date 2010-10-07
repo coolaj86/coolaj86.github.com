@@ -8,12 +8,18 @@ updated_at: 2010-10-07
 categories: gumstix
 ---
 
-Building CouchDB on Gumstix
+Goal
 ====
 
 Gumstix, like BeagleBoard, is an embedded platform. I want to run CouchDB on it.
 
-This blog is incomplete and will probably take me several weeks to complete. Please drop comments if you have hints.
+Building CouchDB on Gumstix
+====
+
+**STATUS**:
+
+  * Native build: Works!
+  * Cross-compile build: haven't tested. See the **resources** section at the bottom. Looks simple enough.
 
 Native Installation
 ====
@@ -149,6 +155,17 @@ Yes, party because it's working.
 
 Yes, go into the browser and set a password.
 
+Replication
+----
+
+I also have an account on [couchone.com](http://couchone.com) which uses http authentication.
+
+To replicate the database I:
+
+  * create a new database on my gumstix
+  * secure it by selecting both one admin and one reader
+  * replicate it by entering the remote as `http://USER:PASSWORD@mydb.couchone.com`
+  * selecting the name of my local database
 
 Resources
 ====
