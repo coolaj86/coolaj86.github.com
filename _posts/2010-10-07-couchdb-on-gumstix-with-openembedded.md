@@ -79,9 +79,9 @@ Create the makefile above and then run
 ICU
 ---
 
-About 1 min. Available in the Angstrom repos.
+About 5 mins. Available in the Angstrom repos.
 
-    sudo opkg install icu
+    sudo opkg install icu icu-dev
 
 Fix non-existent links:
 
@@ -101,21 +101,54 @@ erlang
 
     cd ~/overo-oe
     bitbake erlang
-    scp ./tmp/deploy/glibc/ipk/armv7a/erl*_armv7a.ipk ${USER}@${GUMSTIX}:~/
+    scp ./tmp/deploy/glibc/ipk/armv7a/erlang-libs_*_armv7a.ipk ${USER}@${GUMSTIX}:~/
+    scp ./tmp/deploy/glibc/ipk/armv7a/erlang_*_armv7a.ipk ${USER}@${GUMSTIX}:~/
 
 On the overo
 
-    sudo opkg install ~/erl*
+    sudo opkg install ~/erlang*
 
 CouchDB
 ----
 
-About 10 mins. Installs executable to `/usr/local`
+About 15 mins. Installs executable to `/usr/local`
 
     wget http://www.ecoficial.com/apachemirror//couchdb/1.0.1/apache-couchdb-1.0.1.tar.gz
     tar xf apache-couchdb-1.0.1.tar.gz
     cd apache-couchdb-1.0.1
     ./configure
+    make && sudo make install
+
+Then configuration
+
+    cd ~/
+    sudo su -
+
+    adduser couchdb
+    vim /etc/passwd
+    chown couchdb:couchdb /usr/local/var/lib/couchdb/
+
+    chown -R couchdb: /usr/local/var/{lib,log,run}/couchdb /usr/local/etc/couchdb
+    chmod 0770 /usr/local/var/{lib,log,run}/couchdb/
+    chmod 664 /usr/local/etc/couchdb/*.ini
+    chmod 775 /usr/local/etc/couchdb/*.d
+
+    cd /etc/init.d
+    ln -s /usr/local/etc/init.d/couchdb couchdb
+
+    update-rc.d couchdb defaults
+
+    curl http://127.0.0.1:5984/
+    # {"couchdb":"Welcome","version":"1.0.1"}
+    # run test suite in firefox at http://127.0.0.1:5984/_utils/couch_tests.html?script/couch_tests.js
+
+Admin Party!!!!
+====
+
+Yes, party because it's working.
+
+Yes, go into the browser and set a password.
+
 
 Resources
 ====
@@ -124,7 +157,9 @@ Resources
   * [Mozilla.org: SpiderMonkey Build Documentation](https://developer.mozilla.org/en/SpiderMonkey_Build_Documentation)
     * [Mozilla.org: SpiderMonkey Linux Prerequisites](https://developer.mozilla.org/En/Developer_Guide/Build_Instructions/Linux_Prerequisites)
   * [SpiderMonkey on ARM (CROSS_COMPILE)](http://software.itags.org/mozilla/83286/)
+    * [CROSS_COMPILE SpiderMonkey](http://old.nabble.com/about-SpiderMonkey-cross-compile-td21085220.html)
   * [CouchDB on Android](http://github.com/apage43/couch-android-launcher/wiki/couchdb-build-notes-dump)
+  * [CouchDB on Ubuntu](http://wiki.apache.org/couchdb/Installing_on_Ubuntu)
 
 Appendix
 ====
@@ -170,5 +205,8 @@ Missing link to libicuuc.so
 
 Missing curl-dev
 
-
     checking for curl-config... 
+
+Missing icu-dev
+
+    unicode/ucol.h
