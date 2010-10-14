@@ -1,0 +1,27 @@
+---
+layout: default
+title: All Posts
+---
+<h2>Post Titles:</h2>
+<ul>
+{% for post in site.posts %}
+  <li><a href="#{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
+
+
+
+<h2>All Posts:</h2>
+</div>
+{% for post in site.posts %}
+  <div><a name="{{ post.url }}">&nbsp;</a>
+    {{ post.content }}
+  </div>
+{% endfor %}
+</div>
+
+
+
+<div class="footer">
+  Page generated: {{ site.time | date_to_string }}
+</div>

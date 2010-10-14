@@ -1,0 +1,97 @@
+#!/bin/bash
+set -e
+TITLE=${1}
+POSTDIR=_posts
+EDITDIR=edit
+
+if [ ! -n "${TITLE}" ] || [ -n "${2}" ]
+then
+  echo "USAGE: ${0} 'Title of my Blog Super-Post!'"
+  exit 1
+fi
+
+if [ ! -n "${EDITOR}" ]; then
+  if [ -n "`which vim`" ]; then
+    EDITOR=vim
+  elif [ -n "`which nano`" ]; then
+    EDITOR=nano
+  elif [ -n "`which emacs`" ]; then
+    EDITOR=emacs
+  else
+    echo "Couldn't find an editor. Tried vim, nano, & emacs. Try \`export EDITOR=your-favorite-editor\` "
+  fi
+fi
+
+SLUG=`echo "${TITLE}" \
+  | tr '[A-Z]' '[a-z]' \
+  | tr ' ' '-' \
+  | sed 's/[^a-zA-Z0-9\-]/-/g' \
+  | sed 's/-\+/-/g' \
+  | sed -e 's/^-//g' -e 's/-$//g'`
+
+FILE=`date '+%Y-%m-%d'`-${SLUG}.md
+EDFILE=${EDITDIR}/${SLUG}.md
+
+if [ ! -e ${POSTDIR}/${FILE} ]
+then
+  mkdir -p "${POSTDIR}"
+  cat - > /tmp/${FILE} << EOF
+---
+layout: article
+uuid: `uuidgen`
+title: `echo ${TITLE}`
+name: `echo ${SLUG}`
+created_at: `date +'%Y-%m-%d'`
+updated_at: `date +'%Y-%m-%d'`
+categories: unfinished
+---
+
+You just created ${EDFILE}.
+
+Notice the UPDATED ME in the categories above.
+Please change that to be a category.
+
+Your article starts after the last -- above.
+
+
+Remember
+    
+    Code blocks are indented by 4 spaces
+
+Paragraphs have two spaces between lines.
+Sentances have one.
+
+  * lists can be bullet
+  * like this
+
+or
+
+  1. can be numbered
+  2. like this
+
+Large Header
+====
+
+Small Header
+----
+
+>  block quotes have
+>  a carret and two spaces
+>
+>    and can contain code
+>
+>  * bullets
+>
+>  1. etc
+EOF
+
+  cat /tmp/${FILE}
+  mv /tmp/${FILE} ${POSTDIR}/${FILE}
+
+  mkdir -p ${EDITDIR}
+  ln -s ../${POSTDIR}/${FILE} ${EDFILE}
+fi
+
+$EDITOR ${EDFILE}
+git add ${POSTDIR}/${FILE} ${EDFILE}
+echo "Saved '${EDFILE}' and added to git repository."

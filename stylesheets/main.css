@@ -1,0 +1,59 @@
+body {
+  background: #abcd6f url(http://themes.googleusercontent.com/image?id=1Chj_ye7BsJe4QabnXKJQuhK_LeNly4bySlgKgmDjAgChHUvZW1v1C0LKoAFBqdYE6g6L) no-repeat fixed top center /* Credit: TommyIX (http://www.istockphoto.com/googleimages.php?id=11751797&platform=blogger) */;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom:1px dotted;
+  padding-left: 2px;
+  padding-right: 2px;
+  text-shadow: 1px 1px 1px #888;
+  -webkit-text-shadow: 1px 1px 1px #888;
+  -moz-text-shadow: 1px 1px 1px #888;
+}
+a:hover {
+  border-bottom: 1px solid;
+}
+#article, #header {
+  width: 950px;
+  background-color: #FFF;
+  padding: 10px;
+  padding-left: 15px;
+  margin: 15px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+pre {
+  font-size: 9pt;
+  width: 900px;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin: 5px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  box-shadow: 5px 5px 5px #888;
+  -webkit-box-shadow: 5px 5px 5px #888;
+  -moz-box-shadow: 5px 5px 5px #888;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+div > ul {
+  background-color: #EEE;
+}
+div > ol {
+  background-color: #FFD;
+  box-shadow: 5px 5px 5px #888;
+  -webkit-box-shadow: 2px 2px 2px #888;
+  -moz-box-shadow: 5px 5px 5px #888;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+ul.related {
+  display: inline;
+  text-decoration: none;
+}

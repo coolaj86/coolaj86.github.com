@@ -1,0 +1,6 @@
+destination: ./jekyll-aid-blog
+pygments: true
+markdown: rdiscount
+exclude: mkdocument
+lsi: true
+permalink: /articles/:title.html

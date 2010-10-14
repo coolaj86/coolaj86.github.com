@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<div>
+  {{ content }}
+
+  {% if page.uuid %}
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_identifier = disqus_identifier && 'badid' || '{{ page.uuid }}';
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://___YOUR_ID_HERE___.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=___YOUR_ID_HERE___">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  {% endif %}
+  <em>Updated at {{ page.updated_at }} </em>
+</div>
+
+<div class="footer">
+    <ul class="related">
+    {% for post in site.related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+    </ul>
+</div>
