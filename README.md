@@ -41,7 +41,7 @@ Prepare
 
 Accounts you'll need:
 
-  * Google Analytics
+  * [Google Analytics](http://code.google.com/apis/ajaxsearch/signup.html)
   * Disqus Comments
 
 Files to edit:
@@ -61,8 +61,7 @@ TODO
   * `./editdocument edit/title-of....`
     * updates `updated_at` date automagically
 
-  * join forces with / steal ideas from Jekyll-base
-    * [Jekyll, YUI, and Github...](http://www.nsa.be/index.php/eng/Blog/Jekyll-YUI-and-Github-a-great-combinatio)
-    * [Jekyll Base](http://raphinou.github.com/jekyll-base/)
+  * join forces with / steal ideas from [Jekyll-base](http://raphinou.github.com/jekyll-base/)
+    * use jekyll-base format for url_root, ga_id, google_ajax_search in _config.yml
 
   * Post about this to [the Jekyll mailing list](http://groups.google.com/group/jekyll-rb)
