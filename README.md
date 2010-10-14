@@ -39,7 +39,7 @@ TODO
     * updates `updated_at` date automagically
 
   * join forces with / steal ideas from Jekyll-base
-    * [Jekyll, YUI, and Github...](http://www.nsa.be/index.php/eng/Blog/Jekyll-YUI-and-Github-a-great-combinatio)n
+    * [Jekyll, YUI, and Github...](http://www.nsa.be/index.php/eng/Blog/Jekyll-YUI-and-Github-a-great-combinatio)
     * [Jekyll Base](http://raphinou.github.com/jekyll-base/)
 
   * Post about this to [the Jekyll mailing list](http://groups.google.com/group/jekyll-rb)
