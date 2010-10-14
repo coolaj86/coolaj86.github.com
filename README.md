@@ -5,8 +5,28 @@ Jekyll, the ruby-based blog-aware site builder has no default setup.
 
 Jekyll-aid provides a nice "template" for a Jekyll-based site.
 
+  * Disqus Comments
+  * Google Analytics
+  * categories for posts (in a tag-like fashion)
+  * plays well with subdirectories
+
 Usage
 ====
+
+Add Jekyll-aid to your Jekyll-blog.
+
+    git remote add jekyll-aid git://github.com/coolaj86/jekyll-aid.git
+    git pull jekyll-aid gh-pages
+
+You will have conflicts if you already had any content.
+
+    git mergetool
+    git checkout --ours ./path/to/file
+    git checkout --theirs ./path/to/file
+
+    git commit -a -m "now using jekyll-aid"
+
+You Jekyll-aid!
 
     ./mkdocument 'Title of my Awesome-blog post!!!'
 
@@ -14,6 +34,7 @@ Usage
   * create link `edit/title-of-my-awesome-blog-post.md`
   * adds `created_at` timestamp
   * creates `UUID` (for disqus comments)
+  * adds to `unfinished` category
 
 Prepare
 ====
@@ -29,7 +50,9 @@ Files to edit:
   * `index.html` -- change the `title`
   * `_layouts/default.html` -- replace `___YOUR_ID_HERE___` and `___YOUR_UA_HERE` with your `disqus id` and `google analytics id`
   * `_layouts/article.html` -- replace `___YOUR_ID_HERE___` with your `disqus id`
-  * `_config.yml` -- change the `destination`
+  * `_config.yml`
+    * change the `destination`
+    * url_root to `/your/subpath`
   * `CNAME` -- if you're hosting on github and have a custom domain, enter it here (*without* the www prefix)
 
 TODO
