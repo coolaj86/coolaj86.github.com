@@ -82,6 +82,7 @@ development tools
 nodejs
 ----
 
+    cd ~/
     git clone http://github.com/ry/node.git
     cd node
     git checkout v0.2.3
@@ -89,6 +90,7 @@ nodejs
     make -j 4
     make install
 
+    cd ~/
     curl http://npmjs.org/install.sh | sh
 
     npm install connect express spark futures
@@ -98,4 +100,4 @@ nodejs
 TODO: show sample test webapp
 
     sudo -E ~/local/bin/spark
-    /etc/init/node-vhosts.conf # cannot be symlink
+    /etc/init/webapps.conf # cannot be symlink
