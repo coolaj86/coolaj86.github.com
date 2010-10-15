@@ -1,0 +1,1 @@
+../_posts/2010-10-15-how-i-setup-my-vpses.md
