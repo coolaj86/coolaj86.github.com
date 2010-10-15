@@ -86,7 +86,7 @@ nodejs
     cd node
     git checkout v0.2.3
     ./configure --prefix=~/local
-    make -j 4 # builds in 11seconds.... WOW!
+    make -j 4
     make install
 
     curl http://npmjs.org/install.sh | sh
