@@ -1,7 +1,7 @@
 ---
 layout: article
 uuid: D56AD3F5-DBF4-401F-A7B1-A99BDEEDBD31
-title: Notes on UTOSC2010: How to build android apps
+title: Notes on UTOSC2010 How to build android apps
 name: notes-on-utosc2010-how-to-build-android-apps
 created_at: 2010-10-09
 updated_at: 2010-10-09
