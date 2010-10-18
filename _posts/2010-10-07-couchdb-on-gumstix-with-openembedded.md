@@ -33,14 +33,18 @@ nspr
 
 About 5 mins. Installs libraries to `/usr/local`
 
-    cvs -q -d :pserver:anonymous@cvs-mirror.mozilla.org:/cvsroot co -r NSPR_4_8_RTM nsprpub
+As per [Mozilla's NSPR build instructions](https://developer.mozilla.org/en/NSPR_build_instructions)
+
+
+    cd ~/
+    cvs -q -d :pserver:anonymous@cvs-mirror.mozilla.org:/cvsroot co -r NSPR_4_8_RTM mozilla/nsprpub
     mkdir target
     cd target
     ../mozilla/nsprpub/configure --disable-debug --enable-optimize
     make
     sudo make install
 
-This is also available via bitbake -- see the appendix.
+This is also available via bitbake, but that method didn't work for me -- see the appendix.
 
 SpiderMonkey
 ----
@@ -49,11 +53,11 @@ About 10 mins. Installs libraries to `/usr/local`
 
 OpenEmbedded doesn't stock Mozilla's SpiderMonkey. That must be built first.
 
-    sudo opkg install nspr # or bitbake nspr on your host 
+    cd ~/target
     wget http://ftp.mozilla.org/pub/mozilla.org/js/js-1.8.0-rc1.tar.gz
     tar xf js-1.8.0-rc1.tar.gz -C
     cd js/src
-    # if made from source
+    # if nspr is made from source
     make JS_DIST=/usr/local JS_THREADSAFE=1 BUILD_OPT=1 -f Makefile.ref > /dev/null
     sudo make install
 
@@ -82,22 +86,10 @@ Create the makefile above and then run
 
     sudo make install
 
-ICU
+other
 ---
 
-About 5 mins. Available in the Angstrom repos.
-
-    sudo opkg install icu icu-dev
-
-Fix non-existent links:
-
-    cd /usr/lib
-    ls libicu* | grep '.0' | while read ICU; do sudo ln -s ${ICU} `basename ${ICU} .36.0` ; done
-
-curl
-----
-
-    sudo opkg install curl curl-dev 
+    sudo opkg install libgnutls26 icu icu-dev curl curl-dev 
 
 erlang
 ----
@@ -155,6 +147,8 @@ Yes, party because it's working.
 
 Yes, go into the browser and set a password.
 
+http://${GUMSTIX}:5984/_utils
+
 Replication
 ----
 
@@ -181,20 +175,39 @@ Resources
 Appendix
 ====
 
-`nspr` is no available through the `Angstrom` repository. I tried to bitbake it.
+`nspr` is not available through the `Angstrom` repository. It can be bitbaked.
 
     USER=root
-    GUMSTIX=192.168.1.10
+    GUMSTIX=192.168.1.110
 
     cd ~/overo-oe
     bitbake nspr
     scp ./tmp/deploy/glibc/ipk/armv7a/nspr_*-*_armv7a.ipk ${USER}@${GUMSTIX}:~/
+    scp ./tmp/deploy/glibc/ipk/armv7a/nspr-dev_*-*_armv7a.ipk ${USER}@${GUMSTIX}:~/
     scp ./tmp/deploy/glibc/ipk/armv7a/nspr-static_*-*_armv7a.ipk ${USER}@${GUMSTIX}:~/
 
     sudo opkg install ~/nspr_*.ipk
     
 Errors
 ----
+
+Missing nspr components - try installing from source rather than bitbake
+
+    In file included from jsatom.h:53,
+                     from jsapi.c:57:
+    jslock.h:45:20: error: pratom.h: No such file or directory
+    jslock.h:46:20: error: prlock.h: No such file or directory
+    jslock.h:47:20: error: prcvar.h: No such file or directory
+    jslock.h:48:22: error: prthread.h: No such file or directory
+    In file included from jsatom.h:53,
+                     from jsapi.c:57:
+    [HUGE NUMBER OF ERRORS OMITTED HERE]
+    jsapi.c: In function 'JS_NewStringCopyZ':
+    jsapi.c:5251: error: 'JSRuntime' has no member named 'emptyString'
+    jsapi.c: In function 'JS_NewUCStringCopyZ':
+    jsapi.c:5293: error: 'JSRuntime' has no member named 'emptyString'
+    make[1]: *** [Linux_All_OPT.OBJ/jsapi.o] Error 1
+    make: *** [all] Error 2
 
 Missing nspr and SpiderMonkey
 
@@ -227,3 +240,7 @@ Missing curl-dev
 Missing icu-dev
 
     unicode/ucol.h
+
+Missing gnutls
+
+    gcc: /usr/lib/.libs/libgnutls.so: No such file or directory
