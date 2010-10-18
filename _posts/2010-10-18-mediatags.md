@@ -43,6 +43,8 @@ Project Details
 Listed below are the names of the executables which should be part of this collection, along with existing libraries that may be adaptable.
 
 Media meta-data
+----
+
 These utilties extract *media* meta-data, not specefic to the particular file.
 
   * id3tags (adaptable from mp3info, libid3)
@@ -114,9 +116,52 @@ Verbose Format:
         }
         // etc
       ]
-  
+
+Binary Format:
+
+    m4atags ~/Music/Just\ Dance.m4a --binary-tags /path/to/file.bin # use the literal tagnames
+
+Perhaps Google protobuf
+
+    TODO give example protobuf format
+
+or a simple C/C++ object with version info.
+
+Althought this example is given in psuedo-C,
+C++ allowance of inheritance for the versions would probably be the best choice.
+
+    #define MT_T_ALBUM   1
+    #define MT_T_ALBUM_S "¬©alb"
+    #define MT_N_ALBUM_S "album"
+
+    #define MT_T_ALBUM   2
+    #define MT_T_ALBUM_S "¬©ART"
+    #define MT_N_ALBUM_S "artist"
+
+    // ...
+
+    struct m4atags {
+      int version;
+    }
+    struct m4atags_v1 {
+      int version;
+      int tag;
+      int start_bit;
+      int length;
+      int name;
+      // ...
+    }
+
+    read_in_file(m4atag* tag, char* filename);
+    switch(tag->version) {
+      case 1:
+      m4atag_v1 tag1 = (m4atag_v1*) tag;
+    }
+      
 
 Stream meta-data
+----
+
 These utilities extract *stream* meta-data, not information about the media.
 
   * mp3tags
@@ -139,6 +184,8 @@ Example:
       }
 
 File, Media, and Stream meta-data
+----
+
 The main executable, `mediatags`, should gather all possible meta-data using the appropriate child-libraries.
 
 Using `file` for type detection is not acceptable due to the overhead (AtomicParsley can parse all `m4a` tags in less time than it takes `file` to execute.
@@ -168,10 +215,22 @@ Example:
 System Specifications
 ====
 
-This library is designed to be fast as to run well on embedded environments, namely:
+This library is designed to be fast as to run well on embedded environments:
+
+It will most likely be prototyped on one of the following COMs:
+
+[Gumstix Overo](http://www.gumstix.com/store/catalog/product_info.php?products_id=256):
 
   * OS: Angstrom OpenEmbedded Linux
-  * GPP: 500MHz ARM OMAP3530 CPU
+  * GPP: 500MHz (720MHz max)  ARM TI OMAP3530 CPU
   * RAM: 256MB
   * Storage: 2GB microSDHC
-  * External Storage: 1TB SATA
+  * External Storage: 1TB SATA over USB
+
+[BeagleBoard-XM](http://beagleboard.org/hardware-xM):
+
+  * OS: Angstrom OpenEmbedded Linux
+  * GPP: 1GHz max ARM TI DM3730 CPU
+  * RAM: 512MB
+  * Storage: 2GB microSDHC
+  * External Storage: 1TB SATA over USB
