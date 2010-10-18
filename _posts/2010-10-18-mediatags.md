@@ -29,11 +29,6 @@ Existing tools in higher-level languages such as `hachoir` or `mutagen` (python)
 
 The code will be hosted either on GitHub or a private gitosis repository using `git`.
 
-Estimated Timeline: 1 ~ 2 weeks
-Estimated Budget: $200 ~ $400
-
-
-
 Please continue reading the specs below.
 In your reply, please include the number of *hours* you expect the project to take and what you think will be most interesting to you to code.
 
