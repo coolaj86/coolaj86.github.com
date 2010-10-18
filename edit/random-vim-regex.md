@@ -1,0 +1,1 @@
+../_posts/2010-10-16-random-vim-regex.md
