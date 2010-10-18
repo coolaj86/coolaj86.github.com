@@ -2,13 +2,12 @@
 layout: article
 uuid: bfb4d41a-e691-4f7c-82ab-db165c517782
 title: Self-organizing Media Database
-categories: mediabox
+categories: project
 updated_at: 2010-09-13
 ---
-MediaBox
-====
+Private Cloud Media Server
 
-MediaBox is a plugin framework for organizing media, meta-data, and revisions such as the Music, Movies, Documents, etc on your computer.
+This idea is a plugin framework for organizing media, meta-data, and revisions such as the Music, Movies, Documents, etc on your computer.
 
 This media database is part of a package which runs on a Gumstix Overo Fire, which is constrained.
 Using event-oriented / lazy-evaluation architecture is important.
