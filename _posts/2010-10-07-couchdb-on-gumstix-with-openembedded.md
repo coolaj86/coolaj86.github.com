@@ -19,7 +19,7 @@ Building CouchDB on Gumstix
 **STATUS**:
 
   * Native build: Works!
-  * Cross-compile build: haven't tested. See the **resources** section at the bottom. Looks simple enough.
+  * Cross-compile build: haven't tested. See the **resources** section at the bottom. Looks "simple" enough.
 
 Native Installation
 ====
@@ -126,8 +126,8 @@ Then configuration
     vim /etc/passwd
     chown couchdb:couchdb /usr/local/var/lib/couchdb/
 
-    chown -R couchdb: /usr/local/var/{lib,log,run}/couchdb /usr/local/etc/couchdb
-    chmod 0770 /usr/local/var/{lib,log,run}/couchdb/
+    chown -R couchdb: /usr/local/var/*/couchdb /usr/local/etc/couchdb
+    chmod 0770 /usr/local/var/*/couchdb
     chmod 664 /usr/local/etc/couchdb/*.ini
     chmod 775 /usr/local/etc/couchdb/*.d
 
@@ -136,8 +136,11 @@ Then configuration
 
     update-rc.d couchdb defaults
 
+    /etc/init.d/couchdb start
+    ping -c 1 127.0.0.1 # just to make sure that you haven't misconfigured `/etc/networking/interfaces` ... I have
     curl http://127.0.0.1:5984/
     # {"couchdb":"Welcome","version":"1.0.1"}
+
     # run test suite in firefox at http://127.0.0.1:5984/_utils/couch_tests.html?script/couch_tests.js
 
 Admin Party!!!!
