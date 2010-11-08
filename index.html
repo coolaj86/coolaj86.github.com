@@ -2,15 +2,15 @@
 layout: default
 title: CoolAJ86
 ---
-<div>
+<!-- div>
 <a href="./all.html">Search All Posts</a>
-</div>
+</div -->
 
 <h2>Hello World</h2>
 
 Aug 2010: upgraded php (yuck) on my ubuntu box and something broke. Now I'm on github and I'll eventually port the content over.
 
-<h2>Categories:</h2>
+<!-- h2>Categories:</h2>
 <ul>
 {% for category in site.categories %}
   <li><a href="#{{ category | first }}">{{ category | first }}</a></li>
@@ -31,6 +31,13 @@ Aug 2010: upgraded php (yuck) on my ubuntu box and something broke. Now I'm on g
     <br/>
   </li>
 {% endfor %}
+</ul -->
+
+<h2>All Articles:</h2>
+<ul>
+  {% for post in site.posts %}
+    <li><a href=".{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
 </ul>
 
 {% for post in site.categories.quickstart %}
