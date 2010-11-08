@@ -18,26 +18,29 @@ If your `/home` is mounted on another drive such as `/mnt/local/home` you must c
     #!/bin/bash
     #http://www.gumstix.net/Setup-and-Programming/view/Overo-Setup-and-Programming/Setting-up-a-build-environment/111.html
 
+    OVERO_OE=~/overo-oe
+
     set -e 
 
-    mkdir -p ~/overo-oe
+    mkdir -p ${OVERO_OE}
 
-    cd ~/overo-oe
+    cd ${OVERO_OE}
     git clone git://gitorious.org/gumstix-oe/mainline.git org.openembedded.dev
     cd org.openembedded.dev
     git checkout --track -b overo origin/overo
 
-    cd ~/overo-oe
+    cd ${OVERO_OE}
     git clone git://git.openembedded.net/bitbake bitbake
     cd bitbake
     git checkout 1.8.18
 
-    cd ~/overo-oe
+    cd ${OVERO_OE}
     cp -r org.openembedded.dev/contrib/gumstix/build .
 
     cp ~/.bashrc ~/bashrc.bak.pre-oe
-    cat ~/overo-oe/build/profile >> ~/.bashrc
-    source ~/overo-oe/build/profile
+    cat ${OVERO_OE}/build/profile >> ~/.bashrc
+    source ~/.bashrc
+    vim ~/.bashrc # replace ~/overo-oe with your path
 
     sudo rm /bin/sh
     sudo ln -s /bin/bash /bin/sh
