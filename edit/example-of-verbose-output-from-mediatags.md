@@ -1,0 +1,1 @@
+../_posts/2010-11-15-example-of-verbose-output-from-mediatags.md
