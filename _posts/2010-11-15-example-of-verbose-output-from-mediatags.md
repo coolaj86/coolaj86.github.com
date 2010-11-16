@@ -45,13 +45,15 @@ Literal Tags:
 
 Verbose Tags:
 
-    m4atags --verbose ~/Music/Cascada/Evacuate\ the\ Dancefloor/01\ Evacuate\ the\ Dancefloor\ \(Radio\ Edit\).m4a
-
 This output was adapted from `AtomicParsley`. Some problems exist:
 
   * The `---` tag should be grouped like either the example above or `"---- com.apple.iTunes;iTunSMPB": ...`
   * Where possible the text data in the tags should be output as well.
     * i.e. `{ "value": { "data": { "text": "Cascada", "start": ..., "length": ..., "end": ... } } }`
+
+Output:
+
+    m4atags --verbose ~/Music/Cascada/Evacuate\ the\ Dancefloor/01\ Evacuate\ the\ Dancefloor\ \(Radio\ Edit\).m4a
 
     {
         "ftyp": {
