@@ -225,21 +225,21 @@ Unfortunately, it appears that `task-sdk-native` requires `sysvinit`.
 Installing the Image
 ====
 
-  SDHC=/dev/sde
+    SDHC=/dev/sde
 
-  cd ~/overo-oe
-  bitbake x-loader
-  bitbake u-boot-omap3
-  bitbake nodejs-appliance-image.bb
+    cd ~/overo-oe
+    bitbake x-loader
+    bitbake u-boot-omap3
+    bitbake nodejs-appliance-image.bb
 
-  sudo mkdir /mnt/overo
-  sudo mount /dev/${SDHC}2 /mnt/overo
-  sudo mkdir /dev/${SDHC}1 /mnt/overo/boot
-  sudo cp tmp/deploy/glibc/images/overo/MLO-overo /mnt/overo/boot/MLO
-  sudo cp tmp/deploy/glibc/images/overo/u-boot-overo.bin /mnt/overo/boot/u-boot.bin
-  sudo cp tmp/deploy/glibc/images/overo/uImage-overo.bin /mnt/overo/boot/uImage
+    sudo mkdir /mnt/overo
+    sudo mount /dev/${SDHC}2 /mnt/overo
+    sudo mkdir /dev/${SDHC}1 /mnt/overo/boot
+    sudo cp tmp/deploy/glibc/images/overo/MLO-overo /mnt/overo/boot/MLO
+    sudo cp tmp/deploy/glibc/images/overo/u-boot-overo.bin /mnt/overo/boot/u-boot.bin
+    sudo cp tmp/deploy/glibc/images/overo/uImage-overo.bin /mnt/overo/boot/uImage
 
-  sudo tar xf tmp/deploy/glibc/images/overo/nodejs-appliance-image-overo.tar.bz2 -C /mnt/overo/
+    sudo tar xf tmp/deploy/glibc/images/overo/nodejs-appliance-image-overo.tar.bz2 -C /mnt/overo/
 
 Preparing the Image
 ====
