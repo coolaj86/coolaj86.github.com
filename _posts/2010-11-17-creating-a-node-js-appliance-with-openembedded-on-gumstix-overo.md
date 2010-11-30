@@ -20,7 +20,7 @@ This process has been tested on an Ubuntu 10.04 LTS development server.
 
 You should have read
 
-  * [Partitioning microSDHC for Gumstix Overo](http://fastr.github.com/articles/Partition-MicroSDHC-for-Gumstix-Overo.html
+  * [Partitioning microSDHC for Gumstix Overo](http://fastr.github.com/articles/Partition-MicroSDHC-for-Gumstix-Overo.html)
   * [Formatting microSDHC for Gumstix Overo](http://fastr.github.com/articles/Format-MicroSDHC-for-Gumstix-Overo.html)
   * [NAND-less u-boot configuration and scripting](http://fastr.github.com/articles/booting-the-overo-tide.html)
 
