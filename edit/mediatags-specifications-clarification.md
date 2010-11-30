@@ -1,0 +1,1 @@
+../_posts/2010-11-30-mediatags-specifications-clarification.md
