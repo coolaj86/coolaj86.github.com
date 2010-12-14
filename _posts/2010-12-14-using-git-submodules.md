@@ -141,5 +141,6 @@ This time the remote changes in the submodule are pulled in as expected.
 Resources
 ====
 
-  * http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/
-  * http://book.git-scm.com/5_submodules.html
+  * [http://book.git-scm.com/5_submodules.html](Git Chapter 5: Submodules)
+  * [http://stackoverflow.com/questions/465042/is-it-possible-to-have-a-subversion-repository-as-a-git-submodule](SVN as a Git Submodule)
+  * WARNING chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating has incorrect information, don't follow it
