@@ -1,0 +1,1 @@
+../_posts/2010-12-26-lighttpd-supercedes-apache-and-php-on-gumstix.md
