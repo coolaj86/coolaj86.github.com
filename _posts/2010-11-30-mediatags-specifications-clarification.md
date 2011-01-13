@@ -65,9 +65,8 @@ should be off by default
   * The checksum is probably from the byte offset of the last header tag to
 the end of the file or first header tag
 
-** ****Conculsions
-
-**
+Conclusions
+====
 
 **TagLib** - Let's use taglib if
 
@@ -130,7 +129,8 @@ oggtag?, etc?)
 What does **Unix Filter Class** mean?
 
 
-**Priority**
+Priority
+====
 
 
 While I was waiting my friend created prototypes for outputting mp3 and m4a
@@ -150,60 +150,29 @@ but I would like the checksum-ing ability first.
 Once the --literal-tags is done I'll know better what the --normalized-tags
 should look like
 
-  1. Stream (not file) checksums
-
+  1. Stream (not file) checksums -- `{ "stream": { "sha256sum": "ae68f......" } }`
     1. jpegtags --without-metadata --with-sha256sum ./my-file.jpeg
-
     2. mp3tags --without-metadata --with-sha256sum ./my-file.mp3
-
     3. aactags --without-metadata --with-sha256sum ./my-file.m4a
-
-
-{ "stream": { "sha256sum": "ae68f......" } }
-
-
   2. JPEG Media metadata --literal-tags
-
     1. exivtags ./my-file.jpeg
-
     2. xmptags ./my-file.jpeg
-
     3. iptctags ./my-file.jpeg
-
-
   3. Stream metadata
-
     1. jpegtags
-
     2. aactags
-
     3. mp3tags
-
-
   4. Media --literal-tags
-
     1. m4atags
-
     2. id3tags
-
-
   5. Media --verbose-tags
-
     1. m4atags
-
     2. id3tags
-
     3. exivtags
-
     4. xmptags
-
     5. iptctags
-
-
   6. eBook/pdf tags
-
-    1. more information about what information is stored and can be extracted
-is needed
+    1. more information about what information is stored and can be extracted is needed
 
 Before --normalized-tags I first want to see the outputs of the stream and
 meta-data --literal-tags
@@ -211,10 +180,11 @@ meta-data --literal-tags
 I've pushed --binary-tags to be a future consideration
 
 
-**General Clarifications****
+General Clarifications
+====
 
 
-Meta-data organization**
+**Meta-data organization**
 
 
 I want to make it clear that there are three types of meta data that I am
