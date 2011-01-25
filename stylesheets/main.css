@@ -33,12 +33,14 @@ pre {
   margin: 5px;
   margin-top: 20px;
   margin-bottom: 30px;
+  /*
   box-shadow: 5px 5px 5px #888;
   -webkit-box-shadow: 5px 5px 5px #888;
   -moz-box-shadow: 5px 5px 5px #888;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+  */
 }
 div > ul {
   background-color: #EEE;
