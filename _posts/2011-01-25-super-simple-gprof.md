@@ -29,23 +29,23 @@ Let's say we have a multi-threaded application called `hello`. This is how we ge
 
 First compile it with `-pg` for `gprof` support:
 
-  CFLAGS="-pg"
-  LDFLAGS="-pg"
-  gcc ${CFLAGS} -o hello.o -c hello.c
-  gcc ${LDFLAGS} -o hello hello.o
+    CFLAGS="-pg"
+    LDFLAGS="-pg"
+    gcc ${CFLAGS} -o hello.o -c hello.c
+    gcc ${LDFLAGS} -o hello hello.o
 
 Then compile the `gprof-helper.c` *monkey-patch* (hot-fix)
 
-  wget http://sam.zoy.org/writings/programming/gprof-helper.c
-  gcc -shared -fPIC gprof-helper.c -o gprof-helper.so -lpthread -ldl
+    wget http://sam.zoy.org/writings/programming/gprof-helper.c
+    gcc -shared -fPIC gprof-helper.c -o gprof-helper.so -lpthread -ldl
 
 Now load your application with the `gprof` fix pre-loaded and interpret the results with gprof
 
-  LD_PRELOAD=./gprof-helper.so hello
-  mv gmon.out hello.gmon.out
-  gprof hello hello.gmon.out > hello.gprof.results.txt
+    LD_PRELOAD=./gprof-helper.so hello
+    mv gmon.out hello.gmon.out
+    gprof hello hello.gmon.out > hello.gprof.results.txt
 
-  cat hello.gprof.results.txt
+    cat hello.gprof.results.txt
 
 Note: If your application is a server, you must implement some sort of remote that can cause it to exit cleanly (`return 0`, not `SIGINT`, etc)
 
