@@ -1,0 +1,1 @@
+../_posts/2011-02-08-ubuntu-10-10-maverick-meerkat-on-gumstix-overo.md

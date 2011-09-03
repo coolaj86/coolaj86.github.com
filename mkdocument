@@ -85,7 +85,7 @@ Small Header
 >  1. etc
 EOF
 
-  cat /tmp/${FILE}
+  #cat /tmp/${FILE}
   mv /tmp/${FILE} ${POSTDIR}/${FILE}
 
   mkdir -p ${EDITDIR}
