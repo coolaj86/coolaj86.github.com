@@ -1,0 +1,1 @@
+../_posts/2011-09-06-rocks-beats-scissors--cardboard-beats-paper-jam.md
