@@ -58,6 +58,7 @@ basic utils
 
     apt-get install -y \
       htop \
+      iftop \
       curl \
       wget \
       ssh \
