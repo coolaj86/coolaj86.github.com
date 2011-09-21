@@ -36,7 +36,7 @@ Absolute Essentials
     deb http://us.archive.ubuntu.com/ubuntu/ natty-security main restricted universe multiverse
 
 
-    apt-get update
+    sudo apt-get update
 
     sudo apt-get install -y \
       ssh \
@@ -67,16 +67,16 @@ login as user and disallow root login
     #ssh_config: PermitRootLogin no
     sudo service ssh restart
 
+    VPS=myvps.com
+    sudo hostname ${VPS}
+    sudo bash -c "echo ${VPS} > /etc/hostname"
+
+
+
 default editor
 
     update-alternatives --config editor
     3
-
-hostname
-
-    sudo hostname sub.domain.tld
-    sudo bash -c "echo sub.domain.tld > /etc/hostname"
-
 
 Bare Bones
 ====
@@ -105,15 +105,18 @@ Bare Bones
 
 basic utils
 
-    apt-get install -y \
+    sudo apt-get install -y \
       htop \
       iftop \
       dnsutils \
+      ntpdate \
       curl \
       wget \
       ssh \
       fail2ban \
       vim
+
+    sudo ntpdate ntp.ubuntu.com
 
 development tools
 ====
