@@ -72,6 +72,10 @@ default editor
     update-alternatives --config editor
     3
 
+hostname
+
+    sudo hostname sub.domain.tld
+    sudo bash -c "echo sub.domain.tld > /etc/hostname"
 
 
 Bare Bones
@@ -129,6 +133,17 @@ development tools
     echo 'export PATH=$HOME/local/bin:$PATH' >> ~/.bashrc
     . ~/.bashrc
     mkdir ~/local
+
+.bash_profile
+---
+
+    # Aliases
+    alias ll='ls -lah'
+    alias grep='grep --color=auto'
+
+    # For user@host.domain.tld:/path/to/curdir shows user@host:curdir, colorized
+    export CLICOLOR=1
+    export PS1="\[\e[1;34m\]\u\[\e[0;37m\]@\[\e[0;32m\]\h\[\e[0;37m\]:\[\e[0;35m\]\W\[\e[0m\] \$ "
 
 nodejs
 ----
