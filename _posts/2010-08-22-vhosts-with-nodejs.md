@@ -3,8 +3,21 @@ layout: article
 uuid: 74ecc210-fc0e-4447-afe3-8db9216ebc1e
 title: vhosts with nodejs
 categories: nodejs
-updated_at: 2010-08-22
+updated_at: 2010-09-20
 ---
+UPDATE 2011-09-20
+===
+
+I made a connect module specifically for this purpose:
+
+  * Available on github: <https://github.com/coolaj86/connect-vhoster>
+  * See the bottom section of: <http://coolaj86.info/articles/how-i-setup-my-vpses.html>
+
+[deprecated]
+===
+
+The rest of this article is left for archival and educational purposes.
+
 Goal
 ====
 

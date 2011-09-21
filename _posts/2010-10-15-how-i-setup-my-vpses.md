@@ -10,12 +10,14 @@ categories: thesystemisntdown
 ThrustVPS
 ====
 
-I recently bought a minimal installation of Ubunut 10.04 on ThrustVPS.
+I recently bought a minimal installation of Ubuntu 10.04 on ThrustVPS.
 
 It was a bit more minimal than I expected, but I think they've updated to be more reasonable since.
 I had a friend just purchase his own and his system was much more useable than mine.
 
-locale
+Update: Updated for 11.04 instructions
+
+Locale
 ===
 
     export LANGUAGE=en_US.UTF-8
@@ -25,43 +27,20 @@ locale
 
     dpkg-reconfigure locales
 
-Bare Bones
-====
+Absolute Essentials
+===
 
-    deb http://us.archive.ubuntu.com/ubuntu/ lucid main restricted universe multiverse
-    deb http://us.archive.ubuntu.com/ubuntu/ lucid-updates main restricted universe multiverse
-    deb http://us.archive.ubuntu.com/ubuntu/ lucid-security main restricted universe multiverse
+    /etc/
+    deb http://us.archive.ubuntu.com/ubuntu/ natty main restricted universe multiverse
+    deb http://us.archive.ubuntu.com/ubuntu/ natty-updates main restricted universe multiverse
+    deb http://us.archive.ubuntu.com/ubuntu/ natty-security main restricted universe multiverse
 
 
     apt-get update
 
-    apt-get install -y \
-      dialog \
-      bash-completion \
-      command-not-found \
-      man-db \
-      psmisc \
-      tasksel
-
-    sudo tasksel
-    # Basic Server
-    # SSH Server
-    # remove other stuff - apache, mysql, samba, etc
-
-`/etc/skel/.bashrc`
-
-    if [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    fi
-
-basic utils
-
-    apt-get install -y \
-      htop \
-      iftop \
-      curl \
-      wget \
+    sudo apt-get install -y \
       ssh \
+      rsync \
       fail2ban \
       vim
 
@@ -94,8 +73,50 @@ default editor
     3
 
 
+
+Bare Bones
+====
+
+
+    apt-get install -y \
+      bash-completion \
+      command-not-found \
+      man-db \
+      psmisc \
+      tasksel
+
+    #  dialog \
+
+    sudo tasksel
+    # Basic Server
+    # SSH Server
+
+    # remove other stuff - apache5, mysql, samba, postfix, sendmail, etc
+
+`/etc/skel/.bashrc`
+
+    if [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
+
+basic utils
+
+    apt-get install -y \
+      htop \
+      iftop \
+      dnsutils \
+      curl \
+      wget \
+      ssh \
+      fail2ban \
+      vim
+
 development tools
 ====
+
+    sudo dd if=/dev/zero of=/128mb.swap bs=1M count=128
+    sudo mkswap /128mb.swap
+    sudo swapon /128mb.swap
 
     sudo apt-get install -y \
       git \
