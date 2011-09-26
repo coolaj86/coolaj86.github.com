@@ -27,9 +27,10 @@ For those of you that have used DD-WRT before or otherwise don't need detailed i
   0. **Hard reset** the router using the [30/30/30 method][30-30-30-reset] with the **`WPS`** (not `restore`) button
   0. **Power cycle** while **holding the `restore`** (not `WPS`) button until the blue light on port 1 flashes repeatedly
   0. When `ping 192.168.1.1` confirms that the router is responding, load the firmware:
-        tftp 192.168.1.1
-        binary
-        put tomato-rt-n16.trx
+
+          tftp 192.168.1.1
+          binary
+          put tomato-rt-n16.trx
   0. **Wait 90 seconds** after tftp reports success before power cycling
   0. Set your IP address back to **DHCP**
   0. Power Cycle the router
