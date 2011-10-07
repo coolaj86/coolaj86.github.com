@@ -1,3 +1,5 @@
+git service hooks test
+
 ls | while read P; do sed -i 's/<br\s*\/>/<br>/g' ${P}; done
   563  ls | while read P; do sed -i 's/<br \/>/<br>/g' ${P}; done
   564  grep -R '<br' ./
