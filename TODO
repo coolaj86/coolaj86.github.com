@@ -1,4 +1,4 @@
-git service hooks test
+git service hooks test 2
 
 ls | while read P; do sed -i 's/<br\s*\/>/<br>/g' ${P}; done
   563  ls | while read P; do sed -i 's/<br \/>/<br>/g' ${P}; done
