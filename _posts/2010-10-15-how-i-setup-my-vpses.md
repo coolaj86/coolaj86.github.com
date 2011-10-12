@@ -10,15 +10,12 @@ categories: thesystemisntdown
 ThrustVPS
 ====
 
-I recently bought a minimal installation of Ubuntu 10.04 on ThrustVPS.
-
-It was a bit more minimal than I expected, but I think they've updated to be more reasonable since.
-I had a friend just purchase his own and his system was much more useable than mine.
-
-Update: Updated for 11.04 instructions
+I like <http://thrustvps.com>. They've been good to me and reliable. :-D.
 
 Locale
 ===
+
+I find that if I don't manually set the locale for my VPSes, it won't be set and then I get a bunch of `perl` errors.
 
     export LANGUAGE=en_US.UTF-8
     export LANG=en_US.UTF-8
@@ -30,11 +27,14 @@ Locale
 Absolute Essentials
 ===
 
-    /etc/
-    deb http://us.archive.ubuntu.com/ubuntu/ natty main restricted universe multiverse
-    deb http://us.archive.ubuntu.com/ubuntu/ natty-updates main restricted universe multiverse
-    deb http://us.archive.ubuntu.com/ubuntu/ natty-security main restricted universe multiverse
+I've had at least one case where the repositories had been left empty, so it's always good to check:
 
+    cat universe /etc/apt/sources.list
+    # you should see these two sources listed in the file
+    #deb http://us.archive.ubuntu.com/ubuntu/ lucid main universe multiverse
+    #deb http://us.archive.ubuntu.com/ubuntu/ lucid-security main universe multiverse
+    # you may or may not want to add regular updates in addition to security updates
+    #deb http://us.archive.ubuntu.com/ubuntu/ lucid-updates main restricted universe multiverse
 
     sudo apt-get update
 
@@ -47,42 +47,54 @@ Absolute Essentials
 user accounts & security
 ====
 
+Replace `myuser` with the name of the user you wish to create.
+
+You will be prompted to enter user profile details. You can just leave everything blank, but I like to put my name.
+
     USER=myuser
-
     adduser ${USER}
+
+After you put in your name you can just leave the rest blank.
+
     adduser ${USER} sudo
+    exit # leave the VPS and get back to your own system
 
-    exit
+Now back on your own computer test the account and copy over your favorite user preferences.
 
-login as user and disallow root login
+Change `myuser` and `myvps.com` to your user name and your domain / website name (or your IP address if you haven't managed your DNS yet).
 
+    USER=myuser
     VPS=myvps.com
 
     rsync -avh ~/.ssh/ ${USER}@${VPS}:~/.ssh/
     rsync -avh ~/.vimrc ${USER}@${VPS}:~/.vimrc
     rsync -avh ~/.gitconfig ${USER}@${VPS}:~/.gitconfig
+
+You should never login as root. Now that your user is set up and tested working, root should be disabled right away.
+
     ssh ${USER}@${VPS}
 
     sudo vim /etc/ssh/sshd_config
-    #ssh_config: PermitRootLogin no
+
+Look for the line with `PermitRootLogin yes` and change it to `PermitRootLogin no`. WARNING: never do this from the root account. Always do it from your user account.
+
     sudo service ssh restart
+
+Change `myvps.com` to your hostname / domain / website (even if you haven't configured it yet in DNS)
 
     VPS=myvps.com
     sudo hostname ${VPS}
     sudo bash -c "echo ${VPS} > /etc/hostname"
 
 
-
-default editor
+Now change your default editor to your editor of choice (which should be vim).
 
     update-alternatives --config editor
-    3
 
 Bare Bones
 ====
 
-
-    apt-get install -y \
+    sudo apt-get install -y \
       bash-completion \
       command-not-found \
       man-db \
@@ -92,8 +104,8 @@ Bare Bones
     #  dialog \
 
     sudo tasksel
-    # Basic Server
-    # SSH Server
+    # Basic Server - 1
+    # SSH Server - 12
 
     # remove other stuff - apache5, mysql, samba, postfix, sendmail, etc
 
@@ -117,6 +129,7 @@ basic utils
       vim
 
     sudo ntpdate ntp.ubuntu.com
+    # note, some VPSes don't allow setting the time
 
 development tools
 ====
@@ -124,9 +137,10 @@ development tools
     sudo dd if=/dev/zero of=/128mb.swap bs=1M count=128
     sudo mkswap /128mb.swap
     sudo swapon /128mb.swap
+    # node, some VPSes don't allow swap
 
     sudo apt-get install -y \
-      git \
+      git-core \
       build-essential \
       cmake \
       libssl-dev \
@@ -185,6 +199,12 @@ nodejs
     npm install
     # /etc/init/webapps.conf must not be a symlink
     sudo cp ~/webapps/webapps.conf /etc/init/webapps.conf
+
+Load webapps into `~/webapps/vhosts/`, test that they work, and start the webapps service.
+
     sudo -E /usr/local/bin/spark
+    sudo service webapps start
 
 TODO: show sample test webapp
+
+TODO: github hooks
