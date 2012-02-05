@@ -1,16 +1,16 @@
 ---
 layout: article
 uuid: 3AE1447C-41F1-4179-A4C6-355070AEE25D
-title: Google Chromebook User Manual: Don't Panic
 name: google-chromebook-user-manual-dont-panic
+title: "Google Chromebook User Manual: Don't Panic"
 created_at: 2012-02-04
 updated_at: 2012-02-04
-categories: unfinished
+categories: the-system-isnt-down
 ---
 
-![Google Chromebook Prototype Box]({% url_root %}/files/chromebook-box-with-hamster-wheel-pilot.jpg "Google Chromebook Prototype Box")
+![Google Chromebook Prototype Box]({{url_root}}/files/chromebook-box-with-hamster-wheel-pilot.jpg "Google Chromebook Prototype Box")
 
-![Chromebook Guide: Don't Panic (front)]({% url_root %}/files/chromebook-user-manual-guide-leaflet-dont-panic-front.jpg "Chromebook Guide: Don't Panic (front)")
+![Chromebook Guide: Don't Panic (front)]({{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-front.jpg "Chromebook Guide: Don't Panic (front)")
 
 > Don't Panic.
 >
@@ -62,7 +62,7 @@ regulations.
 
 Install the battery
 
-![Chromebook Guide: Don't Panic (back)]({% url_root %}/files/chromebook-user-manual-guide-leaflet-dont-panic-back.jpg "Chromebook Guide: Don't Panic (back)")
+![Chromebook Guide: Don't Panic (back)]({{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-back.jpg "Chromebook Guide: Don't Panic (back)")
 
 *image*
 
