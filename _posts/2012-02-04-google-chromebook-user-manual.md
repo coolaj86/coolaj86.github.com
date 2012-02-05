@@ -8,6 +8,15 @@ updated_at: 2012-02-04
 categories: the-system-isnt-down
 ---
 
+This is a transcription of the Chromebook Guide that ships with Cr-48, aka Mario.
+
+I later found that exactly two others had already transcribed it:
+
+  * [The requisite first un-boxing post (with complete text of Safety and Regulatory Notices)](http://www.chrome48.info/2010/12/requisite-first-un-boxing-post-with.html)
+  * [Google Cr-48](http://www.tompreuss.com/2011/01/28/google-cr-48/).
+
+Nevertheless, I have the highest resolution images, so I don't feel too bad.
+
 Google Chromebook Guide
 ===
 
