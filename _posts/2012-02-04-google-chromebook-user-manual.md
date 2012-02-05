@@ -21,9 +21,9 @@ Don't Panic.
 >
 > Read this paper. Then recycle it.
 >
-> Or make it into a super cool paper airplate that you can give to your nephew.
+> Or make it into a super cool paper airplane that you can give to your nephew.
 
-Saftey Notices
+Safety Notices
 ---
 (This is the usual yada yada... just more fun)
 
@@ -42,7 +42,7 @@ the keyboard.
 
 When you perform repetitive activities such as typing or playing games on the device,
 you may experience occasional discomfort in your hands, arms, shoulders, neck, or
-other parts of your body. Take frequent breaks and if you have discomfor during or
+other parts of your body. Take frequent breaks and if you have discomfort during or
 after use, stop use and see a physician. We'd make jokes here, but we really want you
 to look after yourselves.
 
@@ -51,7 +51,7 @@ made by an authorized technician. Note that authorized technicians do not necess
 include your neighborhood 15 year old brainiac that you call anytime you get an
 antivirus pop-upon your computer (note: you shouldn't see antivirus pop-ups on this
 device anyway). As cool as laptop ground effects are, unauthorized repairs or
-modifications could result in pemanent damage to the equipment, and void your
+modifications could result in permanent damage to the equipment, and void your
 warranty and your authority to operate this device under applicable regulations.
 
 **Battery**: This device includes a lithium-ion batter, as that whole cold fusion thing
@@ -75,16 +75,16 @@ Install the battery as indicated in the figure (I drew it myself - I think I'm g
 after being a copy editor). Then connect the power cable as indicated. The battery is
 not fully charged, but, like most things in life, with some work you can change that. So
 please please connect the power cable and fully charge the battery before using the
-device for the first time. The power indicator will be organge until the battery is fully
+device for the first time. The power indicator will be orange until the battery is fully
 charged. It's tricky like that.
 
 **Display**: When opening or closing the display panel, place one hand on the palm rest
 to hold the device in place and use the other hand to slowly open or close the display
-panel. You can try opening the display panel with one hand, but that geos into
+panel. You can try opening the display panel with one hand, but that goes into
 extreme display opening and may be frowned upon by someone special in your life.
 You can turn on the power by pressing the button indicated in the figure, or just by
 opening the display panel. That's right - we removed one step between you and the
-Internet. Shock. And. Awe. Do not use excessive force wwhen opening or closing the
+Internet. Shock. And. Awe. Do not use excessive force when opening or closing the
 display panel, or we may ask you to take an anger management class. Be careful not
 to open the display panel too far as this could put stress (physical and emotional) on
 the display panel's hinges and cause damage.
@@ -112,9 +112,10 @@ you?) These limits are designed to provide reasonable protection against harmful
 interference in a residential installation. This equipment generates, uses, and can
 radiate radio frequency energy and may cause harmful interference to radio
 communications if not installed and used in accordance with the instructions. If this
-equipment does cause harmful interference to radio or television recption, which can
+equipment does cause harmful interference to radio or television reception, which can
 be determined by turning the equipment off and on (it's a complicated procedure, we
-know), the user is encouraged to try to correct the intereference by one of the following measures:
+know), the user is encouraged to try to correct the interference by one of the following
+measures:
 
 A) Reorient or relocate the receiving antenna.
 
