@@ -8,12 +8,16 @@ updated_at: 2012-02-04
 categories: the-system-isnt-down
 ---
 
+Google Chromebook Guide
+===
+
 <a href='{{url_root}}/files/chromebook-box-with-hamster-wheel-pilot.jpg'><image
   alt="Google Chromebook Prototype Box"
   src="{{url_root}}/files/chromebook-box-with-hamster-wheel-pilot-thumb.jpg"
-  width="400px" /></a>
+  /></a>
 
-> Don't Panic.
+Don't Panic.
+---
 >
 > Read this paper. Then recycle it.
 >
@@ -129,8 +133,11 @@ E) All of the above
 <a href='{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-front.jpg'><image
   alt="Chromebook Guide: Don't Panic (front)"
   src="{{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-front-thumb.jpg"
-  width="400px" /></a>
+  /></a>
 
 <a href='{{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-back.jpg'><image
   alt="Chromebook Guide: Don't Panic (back)"
-  src='{{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-back-thumb.jpg' width="400px"/></a>
+  src='{{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-back-thumb.jpg'
+  /></a>
+
+Keywords: google chromebook user guide manual hamster wheel pilot airplane assembly funny
