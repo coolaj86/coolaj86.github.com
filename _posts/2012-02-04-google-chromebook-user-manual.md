@@ -8,9 +8,10 @@ updated_at: 2012-02-04
 categories: the-system-isnt-down
 ---
 
-![Google Chromebook Prototype Box]({{url_root}}/files/chromebook-box-with-hamster-wheel-pilot.jpg "Google Chromebook Prototype Box")
-
-![Chromebook Guide: Don't Panic (front)]({{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-front.jpg "Chromebook Guide: Don't Panic (front)")
+<a href='{{url_root}}/files/chromebook-box-with-hamster-wheel-pilot.jpg'><image
+  alt="Google Chromebook Prototype Box"
+  src="{{url_root}}/files/chromebook-box-with-hamster-wheel-pilot-thumb.jpg"
+  width="400px" /></a>
 
 > Don't Panic.
 >
@@ -61,8 +62,6 @@ regulations.
 *images*
 
 Install the battery
-
-![Chromebook Guide: Don't Panic (back)]({{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-back.jpg "Chromebook Guide: Don't Panic (back)")
 
 *image*
 
@@ -126,3 +125,12 @@ E) All of the above
 *barcode*
 
 1950M-DOC002
+
+<a href='{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-front.jpg'><image
+  alt="Chromebook Guide: Don't Panic (front)"
+  src="{{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-front-thumb.jpg"
+  width="400px" /></a>
+
+<a href='{{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-back.jpg'><image
+  alt="Chromebook Guide: Don't Panic (back)"
+  src='{{url_root}}/files/chromebook-user-manual-guide-leaflet-dont-panic-back-thumb.jpg' width="400px"/></a>
