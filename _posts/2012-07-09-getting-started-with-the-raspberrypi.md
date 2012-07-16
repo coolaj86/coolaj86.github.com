@@ -165,6 +165,21 @@ Configuring Arch
           rpi-update 192
           reboot
 
+  7. Resize the sd card partition to its full size
+
+          sudo fdisk -l /dev/mmcblk0 # note the Start of the root (probably second) partition
+          sudo fdisk /dev/mmcblk0
+          > d
+          > 2
+          > n
+          > p
+          > 2
+          > # the number which is the start of the root partition
+          > w
+
+          sudo reboot
+          resize2fs /dev/mmcblk0p2
+
 Hardware Hacking
 ===
 
