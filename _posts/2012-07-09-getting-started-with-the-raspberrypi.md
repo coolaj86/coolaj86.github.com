@@ -113,8 +113,9 @@ Loading the Image to an SD Card
         sudo umount /dev/sdc3
 
   5. Now copy the disk image to the disk (not a partition) so `/dev/rdisk1` rather than `/dev/rdisk1s3` and `/dev/sdc` rather than `/dev/sdc2`
-        RPI_ARCH_RELEASE="13-06-2012"
-        dd bs=1m if=./archlinuxarm-${RPI_ARCH_RELEASE}/archlinuxarm-${RPI_ARCH_RELEASE}.img of=/dev/rdisk1
+
+          RPI_ARCH_RELEASE="13-06-2012"
+          sudo dd bs=1m if=./archlinuxarm-${RPI_ARCH_RELEASE}/archlinuxarm-${RPI_ARCH_RELEASE}.img of=/dev/rdisk1
 
   6. If the drive automounts when `dd` completes, unmount it again (as per above)
 
