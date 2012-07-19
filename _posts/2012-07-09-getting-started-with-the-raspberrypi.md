@@ -198,33 +198,32 @@ and I'll save you some time by telling you that the links you'll need are right 
 Das Blinkin' Lights (how to connect an LED)
 ---
 
-0. Connect a red breadboard wire (or any wire) to GPIO 17 on the main header and a back breadboard wire to ground.
+  0. Connect a red breadboard wire (or any wire) to GPIO 17 on the main header and a back breadboard wire to ground.
 
-1. Wrap a resistor (red red brown gold should do) around one end of an LED.
+  1. Wrap a resistor (red red brown gold should do) around one end of an LED.
 
-2. Test the LED by connecting the longer positive (hot) lead to the 5v power and the other to the ground wire.
+  2. Test the LED by connecting the longer positive (hot) lead to the 5v power and the other to the ground wire.
 
-3. Now attach the long lead (positive) to the red wire. The light will probably be off.
+  3. Now attach the long lead (positive) to the red wire. The light will probably be off.
 
-      sudo su -
+          sudo su -
 
-      ls /sys/class/gpio
-      echo "17" > /sys/class/gpio/exports
+          ls /sys/class/gpio
+          echo "17" > /sys/class/gpio/exports
 
-      ls /sys/class/gpio/
-      ls /sys/class/gpio/gpio17
-      echo "out" > /sys/class/gpio/gpio17/direction # means that this GPIO sources (outputs) 3.3v
+          ls /sys/class/gpio/
+          ls /sys/class/gpio/gpio17
+          echo "out" > /sys/class/gpio/gpio17/direction # means that this GPIO sources (outputs) 3.3v
 
-      while true
-      do
-        echo "0" > /sys/class/gpio/gpio17/value
-        sleep 1
-        echo "1" > /sys/class/gpio/gpio17/value
-        sleep 0.5
-      done
+          while true
+          do
+            echo "0" > /sys/class/gpio/gpio17/value
+            sleep 1
+            echo "1" > /sys/class/gpio/gpio17/value
+            sleep 0.5
+          done
 
-4. The LED should now be blinking on and off. Huzzah!
-
+  4. The LED should now be blinking on and off. Huzzah!
 
 Serial Port
 ---
