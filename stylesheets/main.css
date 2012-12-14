@@ -1,7 +1,12 @@
 body {
   background: #abcd6f url(http://coolaj86.info/images/green-wheat.jpeg) no-repeat fixed top center /* Credit: TommyIX (http://www.istockphoto.com/googleimages.php?id=11751797&platform=blogger) */;
 }
+#blog-list ul {
+  background-color: none;
+  text-align: left;
+}
 #blog-list li {
+  padding: 2px;
   list-style-type: none;
 }
 #blog-list li a {
