@@ -38,9 +38,9 @@ I'm AJ ONeal (aka @coolaj86) and this is my blog.
 {% endcomment %}
 
 <h2>Blog:</h2>
-<ul>
+<ul id="blog-list">
   {% for post in site.posts %}
-    <li><a href=".{{ post.url }}">{{ post.title }}</a></li>
+    <li><a href=".{{ post.url }}" class=".button .bigrounded .white">{{ post.title }}</a></li>
     <!-- TODO post.content | truncatewords 200  -->
   {% endfor %}
 </ul>
