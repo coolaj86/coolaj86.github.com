@@ -1,3 +1,8 @@
+Old
+===
+
+I moved my blog to blog.colaj86.com, which is built with [ruhoh](ruhoh.com)
+
 Jekyll-aid
 ====
 
