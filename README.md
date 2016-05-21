@@ -1,7 +1,7 @@
 Old
 ===
 
-I moved my blog to https://coolaj86.com, which is built with [ruhoh](ruhoh.com)
+I moved my blog to https://coolaj86.com/archive, which is built with [ruhoh](ruhoh.com)
 
 Jekyll-aid
 ====
